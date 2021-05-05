@@ -57,7 +57,7 @@
                         <div class="border">
                             <div class="w-100 bg-warning d-flex justify-content-between text-white mb-0 px-2 pt-2">
                                 <h4><i class="fa fa-th-list pt-1"></i></h4>
-                                <h4><Computed Value></h4>
+                                <h4></h4>
                             </div>
                             <div class="cw-100 bg-warning d-flex justify-content-end text-white mb-0 px-2">
                                 <h6>Current Member<br>Count</h6>
@@ -82,7 +82,7 @@
                         <div class="border">
                             <div class="w-100 bg-info d-flex justify-content-between text-white mb-0 px-2 pt-2">
                                 <h4><i class="fa fa-th-list pt-1"></i></h4>
-                                <h4><Computed Value></h4>
+                                <h4></h4>
                             </div>
                             <div class="cw-100 bg-info d-flex justify-content-end text-white mb-0 px-2">
                                 <h6>Current User<br>Count</h6>
