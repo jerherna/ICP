@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('auth.register');
 });
+*/
 
 Route::get('/test', function () {
     return view('home');
@@ -54,3 +55,7 @@ Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController:
 //Facebook Login
 Route::get('/login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
 Route::get('/login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
+
+Route::group(['middleware' => 'auth'], function(){
+Route::get('/', [HomeController::class, 'home'])->name('home');
+});
