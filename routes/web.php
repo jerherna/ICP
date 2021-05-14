@@ -19,19 +19,20 @@ use Illuminate\Support\Facades\Route;
 });
 */
 
-Route::get('/test', function () {
-    return view('home');
+
+
+
+Route::get('/', function () {
+   // return view('auth.login');
 });
 
-/*
-Route::get('/', function () {
-    return view('auth.login');
-});
-*/
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('account');
+
 
 /*Auth::routes();
 
@@ -46,7 +47,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
 //Route::get('login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
 
-Auth::routes();
+//Auth::routes();
 
 //Google Login
 Route::get('/login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
@@ -56,6 +57,20 @@ Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController:
 Route::get('/login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
 Route::get('/login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
 
+Route::view('/account', 'account');
+
+/*
 Route::group(['middleware' => 'auth'], function(){
-Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'account'])->name('account');
+
+});
+*/
+
+//Route::get('/account', 'form@account');
+
+//Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('form.account');
+
+Route::get('/yo', function()
+{
+    return 'Hello World';
 });

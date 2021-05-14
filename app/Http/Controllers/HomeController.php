@@ -19,10 +19,16 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     *@return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('home');
+        return view('layouts.dashboard');
     }
+
+    public function account()
+    {
+        return view('form.account');
+    }
+
 }

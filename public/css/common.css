@@ -1,0 +1,110 @@
+@CHARSET "ISO-8859-1";
+
+/* hide the domino action bar
+// it will customised and re-populated in a bootstrap toolbar
+
+.domino-actionbar{
+	display: none;
+}
+
+.domino-actionbar-sep{
+	display: none;
+}*/
+html,body {
+	height: 100% !important;
+}
+
+/* smaller navigation icons */
+.sidebar-content .fa {
+	font-size: 1.33333em !important;
+	line-height: .75em !important;
+	vertical-align: -.0667em !important;
+}
+
+/* Overwriting the css framework  */ /* for main content */
+.wrapper .page-wrap .main-content {
+	/* background-color: #F6F7FB; original */
+	background-color: #FFFFFF !important;
+}
+
+label {
+	font-weight: 600 !important;
+}
+
+/* for notification link */
+.wrapper .header-top .top-menu .dropdown .dropdown-menu.notification-dropdown .notifications-wrap a
+	{
+	background: #E8E8E8 !important;
+	text-decoration: none !important;
+}
+
+.wrapper .header-top .top-menu .dropdown .dropdown-menu.notification-dropdown .notifications-wrap a:visited
+	{
+	background: #F8F8F8 !important;
+}
+
+.wrapper .header-top .top-menu .dropdown .dropdown-menu.notification-dropdown .footer a
+	{
+	color: #0062cc !important; /* Notification's See all activity */
+}
+
+.wrapper .header-top .top-menu .dropdown .dropdown-menu.notification-dropdown .notifications-wrap a.media .media-body .media-heading
+	{ /*color: #0000FF;*/
+	
+}
+
+.wrapper .header-top .top-menu .dropdown .dropdown-menu.notification-dropdown .notifications-wrap a:visited
+	.media .media-body .media-heading { /*color: #551A8B;*/
+	
+}
+
+.wrapper .header-top .top-menu .dropdown .dropdown-menu.notification-dropdown .notifications-wrap a:active
+	.media .media-body .media-heading { /*color: #EE0000x;*/
+	
+}
+
+/* Overriding the framework's nav-tabs a css to bootstrap's default */
+.nav-tabs>li a {
+	color: #077bff; /* bootstrap default color for links */
+}
+
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover
+	{
+	color: #212121;
+}
+
+.nav-tabs>li>a:hover {
+	color: #212121;
+}
+
+/* Navigator Title */
+.nav-lavel {
+	text-transform: uppercase !important;
+	font-size: 90% !important;
+	letter-spacing: 1.5px;
+}
+
+/* Navigation Icons */
+.navigation-main i {
+	font-size: 1.2em !important;
+}
+
+/* Date/Time Picker */
+.bootstrap-datetimepicker-widget.dropdown-menu .datepicker table tr th,.bootstrap-datetimepicker-widget.dropdown-menu .datepicker table tr td
+	{
+	width: 20px !important;
+	height: 20px !important;
+	line-height: 30px !important;
+	font-size: 90% !important;
+}
+
+.bootstrap-datetimepicker-widget .timepicker-hour,.bootstrap-datetimepicker-widget .timepicker-minute,.bootstrap-datetimepicker-widget .timepicker-second
+	{
+	font-size: 90% !important;
+}
+
+/* End Date/Time Picker */
+	/* workaround for black background of modal window (BootstrapModalWrapperfactory)*/
+.modal-backdrop {
+	background: rgba(0, 0, 0, 0.5) !important;
+}
