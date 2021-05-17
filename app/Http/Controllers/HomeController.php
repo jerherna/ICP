@@ -31,4 +31,9 @@ class HomeController extends Controller
         return view('form.account');
     }
 
+    public function member()
+    {
+        return view('form.member');
+    }
+
 }

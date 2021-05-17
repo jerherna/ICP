@@ -31,7 +31,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('account');
+Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('form.account');
+
+Route::get('/member', [App\Http\Controllers\HomeController::class, 'member'])->name('form.member');
 
 
 /*Auth::routes();
@@ -57,7 +59,6 @@ Route::get('/login/google/callback', [App\Http\Controllers\Auth\LoginController:
 Route::get('/login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
 Route::get('/login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
 
-Route::view('/account', 'account');
 
 /*
 Route::group(['middleware' => 'auth'], function(){

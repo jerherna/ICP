@@ -8,8 +8,8 @@
 				<i class="ik ik-file-text bg-blue"></i>
 				
 				<div class="d-inline">
-					<h5>Account Profile</h5>
-					<span>"New Account Profile"</span>
+					<h5>Member Profile</h5>
+					<span>New Member</span>
 				</div>
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 </div>-->
 
 <form>
-	<!-- ACCOUNT PROFILE -->
+	<!-- MEMBER PROFILE -->
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">
@@ -81,6 +81,12 @@
 					<br>
 					<div class="form-row">
 						<div class="col-sm-6 no-gutters">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Account Name</label>
+                                <div class="col-sm-9">
+                                    <input name="AcctName"  data-cus-label="Account Name" data-value="" class="form-control form-control-sm">
+                                </div>
+                            </div>    
 							<div class="form-group row">
 								<div class="col-sm-3">
 									<label class="col-form-label text-center float-right"><strong>About</strong></label>
@@ -100,6 +106,13 @@
 						</div>
 	
 						<div class="col-sm-6 no-gutters">
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Account Location</label>
+                                <div class="col-sm-9">
+                                    <input name="AcctLocation" data-cus-label="Account Location" data-value="" class="form-control form-control-sm">
+                                </div>
+                            </div>    
 							<div class="form-group row">
 								<div class="col-sm-3">
 									<label class="col-form-label text-center float-right"><strong>Vision</strong></label>
@@ -107,8 +120,7 @@
 								<div class="col-sm-9 text-justify">
 									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value=""></textarea>
 								</div>
-							</div>
-	
+							</div>	
 							<div class="form-group row">
 								<div class="col-sm-3">
 									<label class="col-form-label text-center float-right"><strong>Mission</strong></label>
@@ -124,7 +136,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- ACCOUNT PROFILE -->
+	<!-- MEMBER PROFILE -->
 
 	<!--CONTACT DETAILS-->
 	<div class = "row">
