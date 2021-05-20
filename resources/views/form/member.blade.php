@@ -45,7 +45,7 @@
 		<div class="col-sm-12">
 			<div class="card mb-3">
 				<div class="card-header">
-					<h6>Account Profile</h6>
+					<h6>Member Profile</h6>
 					<div class="card-header-right">
 						<ul class="list-unstyled card-option" style="width: 90px;">
 							 <li><i class="ik ik-chevron-left action-toggle ik-chevron-right"></i></li>
@@ -82,14 +82,14 @@
 					<div class="form-row">
 						<div class="col-sm-6 no-gutters">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Account Name</label>
+                                <label class="col-sm-3 col-form-label">Account Name</label>
                                 <div class="col-sm-9">
                                     <input name="AcctName"  data-cus-label="Account Name" data-value="" class="form-control form-control-sm">
                                 </div>
                             </div>    
 							<div class="form-group row">
 								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>About</strong></label>
+									<label class="col-form-label text-center"><strong>About</strong></label>
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="About" class="form-control" rows="8" data-cus-label="About" cols="20" data-value=""></textarea>
@@ -97,7 +97,7 @@
 							</div>
 							<div class="form-group row">
 								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>Description</strong></label>
+									<label class="col-form-label text-center"><strong>Description</strong></label>
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value=""></textarea>
@@ -108,14 +108,14 @@
 						<div class="col-sm-6 no-gutters">
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Account Location</label>
+                                <label class="col-sm-3 col-form-label">Account Location</label>
                                 <div class="col-sm-9">
                                     <input name="AcctLocation" data-cus-label="Account Location" data-value="" class="form-control form-control-sm">
                                 </div>
                             </div>    
 							<div class="form-group row">
 								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>Vision</strong></label>
+									<label class="col-form-label text-center"><strong>Vision</strong></label>
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value=""></textarea>
@@ -123,7 +123,7 @@
 							</div>	
 							<div class="form-group row">
 								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>Mission</strong></label>
+									<label class="col-form-label text-center"><strong>Mission</strong></label>
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value=""></textarea>

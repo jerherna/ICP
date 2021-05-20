@@ -9,17 +9,22 @@
 				
 				<div class="d-inline">
 					<h5>Account Profile</h5>
-					<span>"New Account Profile"</span>
+					<span>New Account Profile</span>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-8 col-sm-12 mb-4 d-none d-md-flex justify-content-end">
+		<!-- // Action Buttons for NOTES VERSION -->
+		<!--<div class="col-lg-8 col-sm-12 mb-4 d-none d-md-flex justify-content-end">
 			<div class="custom-actionbar ">
+		-->
 				<!-- Custom action button for large screens -->
+		<!--
 			</div>
 		</div>
 		<div class="col-lg-8 col-sm-12 text-right mb-4 d-md-none">
+		-->
 			<!-- Custom action button for mobile -->
+		<!--
 			<div class="dropdown">
 		 		<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle " data-toggle="dropdown" id="action-buttons" aria-haspopup="true" aria-expanded="false">
 					<i class="fa fa-ellipsis-v"></i> Actions
@@ -28,6 +33,8 @@
 				</div>
 			</div>
 		</div>
+		-->
+		<!-- // END Action Buttons for NOTES VERSION -->
 	</div>
 </div>
 
@@ -41,6 +48,9 @@
 
 <form>
 	<!-- ACCOUNT PROFILE -->
+	
+
+	
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">
@@ -59,7 +69,21 @@
 						<div class="col-sm-4 ml-auto">
 							<div class="d-flex justify-content-center">
 								<div class="show-image">
-
+									<img src="{{ asset('img/empty-profile.jpg') }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+									<div class="btn-group btn-group-sm" role="group" aria-label="Profile Picture Action">
+										<button type="button" class="update file-upload-browse btn btn-sm btn-primary" data-img-name="">
+											<i class="fa fa-folder-open"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-danger delete" data-img-name="" >
+											<i class="fa fa-trash"></i>
+										</button>
+									</div>
+									
+									<!-- Form Attachment -->
+									<div class="form-group">
+										<input type="file" name="%%File.1" class="file-upload-default" data-img-name="">
+										<input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" hidden>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -82,18 +106,18 @@
 					<div class="form-row">
 						<div class="col-sm-6 no-gutters">
 							<div class="form-group row">
-								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>About</strong></label>
+								<div class="col-sm-4">
+									<label class="col-form-label text-center"><strong>About</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
+								<div class="col-sm-8 text-justify">
 									<textarea name="About" class="form-control" rows="8" data-cus-label="About" cols="20" data-value=""></textarea>
 								</div>
 							</div>
 							<div class="form-group row">
-								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>Description</strong></label>
+								<div class="col-sm-4">
+									<label class="col-form-label text-center"><strong>Description</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
+								<div class="col-sm-8 text-justify">
 									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value=""></textarea>
 								</div>
 							</div>
@@ -101,19 +125,19 @@
 	
 						<div class="col-sm-6 no-gutters">
 							<div class="form-group row">
-								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>Vision</strong></label>
+								<div class="col-sm-4">
+									<label class="col-form-label text-center"><strong>Vision</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
+								<div class="col-sm-8 text-justify">
 									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value=""></textarea>
 								</div>
 							</div>
 	
 							<div class="form-group row">
-								<div class="col-sm-3">
-									<label class="col-form-label text-center float-right"><strong>Mission</strong></label>
+								<div class="col-sm-4">
+									<label class="col-form-label text-center"><strong>Mission</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
+								<div class="col-sm-8 text-justify">
 									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value=""></textarea>
 								</div>
 							</div>

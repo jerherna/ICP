@@ -36,4 +36,8 @@ class HomeController extends Controller
         return view('form.member');
     }
 
+    public function user()
+    {
+        return view('form.user');
+    }
 }

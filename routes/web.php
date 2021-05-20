@@ -35,6 +35,8 @@ Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])-
 
 Route::get('/member', [App\Http\Controllers\HomeController::class, 'member'])->name('form.member');
 
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('form.user');
+
 
 /*Auth::routes();
 

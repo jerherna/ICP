@@ -29,6 +29,7 @@
     <link href="{{ asset('plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form-common.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/theme.min.css') }}" rel="stylesheet">
 
     <script src="{{ asset('src/js/vendor/modernizr-2.8.3.min.js') }}"></script>

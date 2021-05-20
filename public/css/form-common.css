@@ -1,0 +1,93 @@
+@CHARSET "ISO-8859-1";
+
+/*
+//hide the domino action bar
+//it will be customized and populated in breadcrumb
+*/
+.domino-actionbar,.domino-actionbar-sep {
+	display: none;
+}
+
+.checkbox {
+	padding: 0px;
+	margin: 0px;
+	width: 60px;
+	border: 0 none;
+	border-style: none;
+}
+
+.checkbox ~span{
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	float: right;
+	width: 85px;
+}
+
+.checkbox input {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	width: 30px;
+	border: 0 none;
+	border-style: none;
+}
+
+.checkbox br {
+	clear: both;
+}
+
+/* make all label a little bit bolder */
+.col-form-label {
+	font-weight: 600 !important;
+}
+
+/* Profile ID Container Style */
+div.show-image {
+	position: relative;
+	float: left;
+	margin: 5px;
+}
+
+div.show-image img {
+	width: 200px;
+	height: auto;
+}
+
+div.show-image:hover img {
+	opacity: 0.5;
+}
+
+div.show-image:hover .btn-group {
+	display: block;
+	left: 30%;
+	top: 10px;
+}
+
+div.show-image .btn-group {
+	position: absolute;
+	display: none;
+}
+
+div.show-image button.update {
+	
+}
+
+div.show-image button.delete {
+	
+}
+
+div.show-image:hover .button-group {
+	
+}
+
+/* Fit td content */
+td {
+	max-width: 100%;
+	white-space: nowrap;
+}
+/* checkbox 
+.checkbox{padding: 0px; margin: 0px; width:60px; border: 0 none; border-style: none;}
+.checkbox~span{padding:0px; margin:0px; display:inline; float:right; width:85px;}
+.checkbox input{padding: 0px;margin: 0px;float:left;width:30px; border : 0 none; border-style : none;}
+.checkbox br{clear:both;}*/
