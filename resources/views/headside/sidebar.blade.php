@@ -15,7 +15,7 @@
 			<nav id="main-menu-navigation" class="navigation-main">
 				<div class="nav-lavel">Church Portal</div>
 				<div class="nav-item">
-					<a class="menu-item" href=""><i class="fab fa-dashcube fa-fw"></i><span>Dashboard</span></a>
+					<a class="menu-item" href="{{ url('home') }}"><i class="fab fa-dashcube fa-fw"></i><span>Dashboard</span></a>
 				</div>         
 				<div class="nav-item" hidden>
 					<a class="menu-item" href=""><i class="fa fa-address-card fa-fw"></i><span>My Profile</span></a>
@@ -36,7 +36,7 @@
 				<div class="nav-item has-sub">
 					<a href="#"><i class="fa fa-sitemap fa-fw"></i><span>Accounts</span></a>
 					<div class="submenu-content">
-						<a class="menu-item" href="">By Name</a>
+						<a class="menu-item" href="{{ url('accountsbyname') }}">By Name</a>
 						<a class="menu-item" href="">By Location</a>
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 				<div class="nav-item has-sub">
 					<a href="#"><i class="fas fa-church fa-fw"></i><span>Members</span></a>
 					<div class="submenu-content">
-						<a class="menu-item" href="">By Name</a>
+						<a class="menu-item" href="{{ url('membersbyname') }}">By Name</a>
 						<a class="menu-item" href="">By Account</a>
 						<a class="menu-item" href="">By Location</a>
 					</div>
@@ -53,7 +53,7 @@
 				<div class="nav-item has-sub">
 					<a href="#"><i class="fas fa-users fa-fw"></i><span>Users</span></a>
 					<div class="submenu-content">
-						<a class="menu-item" href="">By Name</a>
+						<a class="menu-item" href="{{ url('usersbyname') }}">By Name</a>
 						<a class="menu-item" href="">By Account</a>
 						<a class="menu-item" href="">By Member</a>
 					</div>

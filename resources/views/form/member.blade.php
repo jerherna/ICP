@@ -39,7 +39,8 @@
 	</div>
 </div>-->
 
-<form>
+<form action="/member" method="POST">
+	@csrf
 	<!-- MEMBER PROFILE -->
 	<div class = "row">
 		<div class="col-sm-12">
@@ -244,6 +245,7 @@
 	</div>
 	<!--//CONTACT DETAILS-->
 
+	<button type="submit" class="btn btn-primary float-right">Save</button>
 
 </form>
 @endsection

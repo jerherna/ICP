@@ -46,7 +46,8 @@
 	</div>
 </div>-->
 
-<form>
+<form action="/userprofile" method="POST">
+    @csrf
 	<!-- USER PROFILE -->
 	<div class = "row">
         <div class="col-sm-12">
@@ -170,27 +171,6 @@
 									<input name="MobileNo" value="" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
-							<div class="form-group row">
-								<label class="col-sm-4 col-form-label">Denomination Affilitation</label>
-								<div class="col-sm-8">
-									<input name="DenomAffiliate" value="" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-sm-4 col-form-label">Church Type</label>
-								<div class="col-sm-8">
-									<input name="ChurchType" value="" data-cus-label="Church Type" data-value="" class="form-control form-control-sm">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-sm-4 col-form-label">Church and Staff Leaders</label>
-								<div class="col-sm-8">
-									<input name="StaffAndLeaders" value="" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm">
-								</div>
-							</div>
-
-
-
 						</div>
 						<div class="col-sm-6 no-gutters">
 							<div class="form-group row">
@@ -269,27 +249,27 @@
                     <div class="form-group row align-items-center">
                         <div class="col"><input name="SSkills_1" class="form-control form-control-sm"></div>
                         <div class="col"><input name="SRate_1" class="form-control form-control-sm"></div>
-                        <div class="col"><<input name="SRate_1" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SYearsOfExp_1" class="form-control form-control-sm"></div>
                     </div>
                     <div class="form-group row align-items-center">
                         <div class="col"><input name="SSkills_2" class="form-control form-control-sm"></div>
                         <div class="col"><input name="SRate_2" class="form-control form-control-sm"></div>
-                        <div class="col"><<input name="SRate_2" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SYearsOfExp_2" class="form-control form-control-sm"></div>
                     </div>
                     <div class="form-group row align-items-center">
                         <div class="col"><input name="SSkills_3" class="form-control form-control-sm"></div>
                         <div class="col"><input name="SRate_3" class="form-control form-control-sm"></div>
-                        <div class="col"><<input name="SRate_3" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SYearsOfExp_3" class="form-control form-control-sm"></div>
                     </div>
                     <div class="form-group row align-items-center">
                         <div class="col"><input name="SSkills_4" class="form-control form-control-sm"></div>
                         <div class="col"><input name="SRate_4" class="form-control form-control-sm"></div>
-                        <div class="col"><<input name="SRate_4" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SYearsOfExp_4" class="form-control form-control-sm"></div>
                     </div>
                     <div class="form-group row align-items-center">
                         <div class="col"><input name="SSkills_5" class="form-control form-control-sm"></div>
                         <div class="col"><input name="SRate_5" class="form-control form-control-sm"></div>
-                        <div class="col"><<input name="SRate_5" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SYearsOfExp_5" class="form-control form-control-sm"></div>
                     </div>
                 </div>
             </div>
@@ -354,7 +334,7 @@
                         <div class="col"><input name="TConductedBy_5" class="form-control form-control-sm"></div>
                         <div class="col"><input name="TVenue_5" class="form-control form-control-sm"></div>
                     </div>
-                    <div class="form-group row align-items-center">
+                    <!--<div class="form-group row align-items-center">
                         <div class="col"><input name="TCourse_6" class="form-control form-control-sm"></div>
                         <div class="col"><input name="TFrom_6" class="form-control form-control-sm"></div>
                         <div class="col"><input name="TTo_6" class="form-control form-control-sm"></div>
@@ -389,12 +369,14 @@
                         <div class="col"><input name="TConductedBy_10" class="form-control form-control-sm"></div>
                         <div class="col"><input name="TVenue_10" class="form-control form-control-sm"></div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
     </div>
     <!--// TRAININGS-->
 
+    <button type="submit" class="btn btn-primary float-right">Save</button>
 
 </form>
 @endsection

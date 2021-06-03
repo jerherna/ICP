@@ -99,18 +99,22 @@
                 </div>
             </div>
         </div>
+        <!--
         <div class="row">
             <div class="col-sm-6">
                 <h6 class="preview-title text-secondary text-uppercase py-5">PREVIEW</h6>
             </div>
         </div>
-        <div class="row">
+        <div class="row" hidden>
             <div class="col-sm-12">
                 <ul class="list-group preview">
                     <!-- content is dynamically populated -->
+        <!---->
+        <!--
                 </ul>
             </div>
         </div>
+        -->
     </div>
 </div>
 
