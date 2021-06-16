@@ -21,13 +21,13 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+//import Vue from 'vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
 Vue.use(VueGoogleMaps, {
     load: {
-        key:'AIzaSyAszXqdN2Dasiy0Bv9-LeJT-5Bj2S71ws0'
-    },
-    installComponents: true
+        key:''
+    }
 
 });
 

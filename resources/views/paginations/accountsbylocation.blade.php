@@ -4,11 +4,11 @@
     <a href="{{url('account')}}" class="btn btn-primary">New Account</a>
     <!--<button type="button" class="btn btn-primary float-right" href="{{url('account')}}">New Account</button>-->
     <h1>Account List</h1>
-    <div class="table-responsive">
-        <table border="1" class="table table-striped table-bordered table-sm table-responsive">
+    <div class="py-5">
+        <table border="1" class="py-5 table table-striped table-bordered table-sm">
             <tr>
-                <td>Church Name</td>
                 <td>Location</td>
+                <td>Church Name</td>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>
@@ -29,8 +29,8 @@
             </tr>
             @foreach ($accounts as $account)
             <tr>
-                <td>{{$account['church_name']}}</td>
                 <td>{{$account['location']}}</td>
+                <td>{{$account['church_name']}}</td>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>

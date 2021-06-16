@@ -11,7 +11,7 @@
     <title>Interlink Church Portal</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,11 +31,14 @@
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-common.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/theme.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
+    
     <script src="{{ asset('src/js/vendor/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{ asset('src/js/vendor/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('plugins/popper.js/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
     
 </head>
 <body>
@@ -80,6 +83,8 @@
         -->
     </div>
 
+    <!--<script src="{{ asset('js/app2.js') }}"></script>-->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('/plugins/moment/moment.js') }}"></script>
     <script src="{{ asset('/plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <script src="{{ asset('/plugins/perfect-scrollbar/dist/perfect-scrollbar.js') }}"></script>

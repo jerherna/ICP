@@ -1,14 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{url('account')}}" class="btn btn-primary">New Account</a>
-    <!--<button type="button" class="btn btn-primary float-right" href="{{url('account')}}">New Account</button>-->
-    <h1>Account List</h1>
-    <div class="table-responsive">
-        <table border="1" class="table table-striped table-bordered table-sm table-responsive">
+    <a href="{{url('member')}}" class="btn btn-primary">New Member</a>
+    <h1>Member List</h1>
+    <div class="py-5 mx-auto">
+        <table border="1" class="py-5 table table-striped table-bordered table-sm">
             <tr>
-                <td>Church Name</td>
                 <td>Location</td>
+                <td>Church Name</td>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>
@@ -27,21 +26,21 @@
                 <td>Website</td>
                 <td>Status</td>-->
             </tr>
-            @foreach ($accounts as $account)
+            @foreach ($members as $member)
             <tr>
-                <td>{{$account['church_name']}}</td>
-                <td>{{$account['location']}}</td>
+                <td>{{$member['location']}}</td>
+                <td>{{$member['church_name']}}</td>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>
                 <td>Mission</td>
                 -->
-                <td>{{$account['email']}}</td>
-                <td>{{$account['mobile']}}</td>
-                <td>{{$account['denomination_affiliation']}}</td>
-                <td>{{$account['church_type']}}</td>
-                <td>{{$account['church_staff_and_leaders']}}</td>
-                <td>{{$account['telephone']}}</td>
+                <td>{{$member['email']}}</td>
+                <td>{{$member['mobile']}}</td>
+                <td>{{$member['denomination_affiliation']}}</td>
+                <td>{{$member['church_type']}}</td>
+                <td>{{$member['church_staff_and_leaders']}}</td>
+                <td>{{$member['telephone']}}</td>
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>
@@ -55,7 +54,7 @@
     
 
     <span>
-        {{$accounts->links()}}
+        {{$members->links()}}
     </span>
 
 @endsection

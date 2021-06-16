@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+/*
 .center {
     display: block;
     margin-left: auto;
@@ -31,4 +31,9 @@ body, html {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+*/
+
+.clearfix {
+    overflow: auto !important;
 }

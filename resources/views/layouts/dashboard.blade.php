@@ -22,8 +22,11 @@
                     No accounts defined!
                 </div>
             </div>
+            
         </div>
     </div>
+
+    
 
 
     <div class="col-md-6">
@@ -93,6 +96,30 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <h3>Member Locations</h3>
+        <div class="map" id="app">
+            <!-- MEMBER MAP TEST GOES HERE -->
+            <gmap-map
+                :center="{lat:14.5790667,lng:121.0584578}"
+                :zoom="12"
+                style="width: 100%; height: 500px;"
+                
+            >
+                @foreach($members as $member)
+                 <gmap-marker
+                    :position="{lat:{{$member['latitude']}},lng:{{$member['longitude']}}}"
+                    :clickable="true"
+                    :draggable="false"
+                ></gmap-marker>
+                @endforeach
+            </gmap-map>
+        </div>
+    </div>
+    
+</div>
+
 <div class="row" hidden>
     <div class="col-md-8">
         <div class="card">
@@ -153,4 +180,5 @@
         </div>
     </div>
 </div>
+
 @endsection

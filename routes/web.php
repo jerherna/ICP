@@ -135,9 +135,19 @@ Route::post('/userprofile',function(){
 
 Route::get('accountsbyname', [Paginators::class, 'accounts_by_name']);
 
+Route::get('accountsbylocation', [Paginators::class, 'accounts_by_location']);
+
 Route::get('membersbyname', [Paginators::class, 'members_by_name']);
 
+Route::get('membersbyaccount', [Paginators::class, 'members_by_account']);
+
+Route::get('membersbylocation', [Paginators::class, 'members_by_location']);
+
 Route::get('usersbyname', [Paginators::class, 'userprofiles_by_name']);
+
+Route::get('usersbyaccount', [Paginators::class, 'userprofiles_by_account']);
+
+Route::get('usersbymember', [Paginators::class, 'userprofiles_by_member']);
 
 /*Auth::routes();
 
