@@ -9,7 +9,7 @@
 				
 				<div class="d-inline">
 					<h5>User Profile</h5>
-					<span>New User Profile</span>
+					<span>{{$Info->lastname}}, {{$Info->firstname}} {{$Info->middlename}}</span>
 				</div>
 			</div>
 		</div>
@@ -89,25 +89,25 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">First Name</label>
                                 <div class="col-sm-8">
-                                    <input name="FirstName" value="" data-cus-label="First Name" data-value="" class="form-control form-control-sm">
+                                    <input name="FirstName" value="{{$Info->firstname}}" data-cus-label="First Name" data-value="" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Middle Name</label>
                                 <div class="col-sm-8">
-                                    <input name="MiddleName" value="" data-cus-label="Middle Name" data-value="" class="form-control form-control-sm">
+                                    <input name="MiddleName" value="{{$Info->middlename}}" data-cus-label="Middle Name" data-value="" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Last Name</label>
                                 <div class="col-sm-8">
-                                    <input name="LastName" value="" data-cus-label="Last Name" data-value="" class="form-control form-control-sm">
+                                    <input name="LastName" value="{{$Info->lastname}}" data-cus-label="Last Name" data-value="" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Role</label>
                                 <div class="col-sm-8">
-                                    <input name="Role" value="" data-cus-label="Role" data-value="" class="form-control form-control-sm">
+                                    <input name="Role" value="{{$Info->role}}" data-cus-label="Role" data-value="" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                         </div>
@@ -123,13 +123,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Account Name</label>
                                 <div class="col-sm-8">
-                                    <input name="AcctName" data-cus-label="Account Name" class="form-control form-control-sm">
+                                    <input name="AcctName" value="{{$Info->account_name}}" data-cus-label="Account Name" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Account Location</label>
                                 <div class="col-sm-8">
-                                    <input name="AcctLocation" data-cus-label="Account Location" class="form-control form-control-sm">
+                                    <input name="AcctLocation" value="{{$Info->account_location}}" data-cus-label="Account Location" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                         </div>
@@ -138,13 +138,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Organization</label>
                                 <div class="col-sm-8">
-                                    <input name="Org" data-cus-label="Organization" class="form-control form-control-sm">
+                                    <input name="Org" value="{{$Info->org_name}}" data-cus-label="Organization" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Organization Location</label>
                                 <div class="col-sm-8">
-                                    <input name="OrgLocation" data-cus-label="Organization Location" class="form-control form-control-sm">
+                                    <input name="OrgLocation" value="{{$Info->org_location}}" data-cus-label="Organization Location" class="form-control form-control-sm" readonly>
                                 </div>
                             </div>
                         </div>
@@ -176,13 +176,13 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Email</label>
 								<div class="col-sm-8">
-									<input name="Email" value="" data-cus-label="Email" data-value="" class="form-control form-control-sm">
+									<input name="Email" value="{{$Info->email}}" data-cus-label="Email" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Mobile No.</label>
 								<div class="col-sm-8">
-									<input name="MobileNo" value="" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm">
+									<input name="MobileNo" value="{{$Info->mobile}}" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 						</div>
@@ -190,42 +190,42 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Telephone No.</label>
 								<div class="col-sm-8">
-									<input name="TelNo" value="" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm">
+									<input name="TelNo" value="{{$Info->telephone}}" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-facebook-square"></i> Facebook</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-fb" name="social-fb" value="Facebook" class="fb-checkbox"></div>
 								<div class="fb-value col-sm-8">
-									<input name="SocialFB" value="" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialFB" value="{{$Info->facebook_handle}}" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-twitter-square"></i> Twitter</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-tw" name="social-tw" value="Twitter" class="tw-checkbox"></div>
 								<div class="tw-value col-sm-8">
-									<input name="SocialTwitter" value="" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialTwitter" value="{{$Info->twitter_handle}}" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-instagram"></i> Instagram</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-ig" name="social-ig" value="Instagram" class="ig-checkbox"></div>
 								<div class="ig-value col-sm-8">
-									<input name="SocialInstagram" value="" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialInstagram" value="{{$Info->instagram_handle}}" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-linkedin"></i> LinkedIn</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-li" name="social-li" value="LinkedIn" class="li-checkbox"></div>
 								<div class="li-value col-sm-8">
-									<input name="SocialLinkedIn" value="" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialLinkedIn" value="{{$Info->linkedin_handle}}" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fas fa-globe"></i> Website</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-web" name="social-web" value="Website" class="web-checkbox"></div>
 								<div class="web-value col-sm-8">
-									<input name="SocialWebsite" value="" data-cus-label="Website Link" data-value="" class="form-control form-control-sm">
+									<input name="SocialWebsite" value="{{$Info->website_handle}}" data-cus-label="Website Link" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 						</div>
@@ -257,29 +257,29 @@
                         <div class="col font-weight-bold bg-light py-2">Years of Experience</div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="SSkills_1" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SRate_1" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SYearsOfExp_1" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SSkills_1" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SRate_1" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SYearsOfExp_1" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="SSkills_2" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SRate_2" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SYearsOfExp_2" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SSkills_2" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SRate_2" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SYearsOfExp_2" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="SSkills_3" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SRate_3" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SYearsOfExp_3" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SSkills_3" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SRate_3" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SYearsOfExp_3" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="SSkills_4" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SRate_4" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SYearsOfExp_4" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SSkills_4" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SRate_4" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SYearsOfExp_4" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="SSkills_5" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SRate_5" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="SYearsOfExp_5" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="SSkills_5" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SRate_5" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="SYearsOfExp_5" class="form-control form-control-sm" readonly></div>
                     </div>
                 </div>
             </div>
@@ -310,39 +310,39 @@
                         <div class="col font-weight-bold bg-light py-2">Venue</div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="TCourse_1" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TFrom_1" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TTo_1" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TConductedBy_1" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TVenue_1" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="TCourse_1" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TFrom_1" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TTo_1" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TConductedBy_1" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TVenue_1" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="TCourse_2" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TFrom_2" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TTo_2" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TConductedBy_2" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TVenue_2" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="TCourse_2" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TFrom_2" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TTo_2" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TConductedBy_2" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TVenue_2" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="TCourse_3" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TFrom_3" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TTo_3" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TConductedBy_3" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TVenue_3" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="TCourse_3" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TFrom_3" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TTo_3" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TConductedBy_3" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TVenue_3" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="TCourse_4" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TFrom_4" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TTo_4" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TConductedBy_4" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TVenue_4" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="TCourse_4" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TFrom_4" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TTo_4" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TConductedBy_4" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TVenue_4" class="form-control form-control-sm" readonly></div>
                     </div>
                     <div class="form-group row align-items-center">
-                        <div class="col"><input name="TCourse_5" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TFrom_5" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TTo_5" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TConductedBy_5" class="form-control form-control-sm"></div>
-                        <div class="col"><input name="TVenue_5" class="form-control form-control-sm"></div>
+                        <div class="col"><input name="TCourse_5" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TFrom_5" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TTo_5" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TConductedBy_5" class="form-control form-control-sm" readonly></div>
+                        <div class="col"><input name="TVenue_5" class="form-control form-control-sm" readonly></div>
                     </div>
                     <!--<div class="form-group row align-items-center">
                         <div class="col"><input name="TCourse_6" class="form-control form-control-sm"></div>

@@ -13,28 +13,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- // Action Buttons for NOTES VERSION -->
-		<!--<div class="col-lg-8 col-sm-12 mb-4 d-none d-md-flex justify-content-end">
-			<div class="custom-actionbar ">
-		-->
-				<!-- Custom action button for large screens -->
-		<!--
-			</div>
-		</div>
-		<div class="col-lg-8 col-sm-12 text-right mb-4 d-md-none">
-		-->
-			<!-- Custom action button for mobile -->
-		<!--
-			<div class="dropdown">
-		 		<button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle " data-toggle="dropdown" id="action-buttons" aria-haspopup="true" aria-expanded="false">
-					<i class="fa fa-ellipsis-v"></i> Actions
-				</button>
-				<div class="custom-actionbar dropdown-menu" aria-labelledby="action-buttons" x-placement="bottom-start">
-				</div>
-			</div>
-		</div>
-		-->
-		<!-- // END Action Buttons for NOTES VERSION -->
 	</div>
 </div>
 
@@ -46,10 +24,30 @@
 	</div>
 </div>-->
 
-<form action="/account" method="POST">
+<form action="/account" method="POST" enctype="multipart/form-data">
 	@csrf
 	<!-- ACCOUNT PROFILE -->
-	
+	<!--<div class="col-sm-4 ml-auto">
+		<div class="d-flex justify-content-center">
+			<div class="show-image">
+				<img src="/hris-modern/hris-personnelinfo.nsf/img/empty-profile.jpg?" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Profile Picture Action">
+					<button type="button" class="update file-upload-browse btn btn-sm btn-primary" data-img-name="">
+						<i class="fa fa-folder-open"></i>
+					</button>
+					<button type="button" class="btn btn-sm btn-danger delete" data-img-name="">
+						<i class="fa fa-trash"></i>
+					</button>
+				</div>
+
+				Form Attachment
+				<div class="form-group">
+					<input type="file" name="AccountImg" class="file-upload-default form-control form-control-sm" data-img-name="">
+					<input type="text" class="form-control file-upload-info form-control-sm" disabled="" placeholder="Upload Image" hidden="">
+				</div>
+			</div>
+		</div>
+	</div>-->
 
 	
 	<div class = "row">
@@ -258,6 +256,36 @@
 		</div>
 	</div>
 	<!--//CONTACT DETAILS-->
+
+	<!--GALLERY-->
+	<div class = "row">
+		<div class="col-sm-12">
+			<div class="card mb-3">
+				<div class="card-header">
+					<h6>Gallery</h6>
+					<div class="card-header-right">
+						<ul class="list-unstyled card-option" style="width: 90px;">
+							<li><i class="ik ik-chevron-left action-toggle ik-chevron-right"></i></li>
+							<li><i class="ik minimize-card ik-minus"></i></li>
+							<li><i class="ik ik-x close-card"></i></li>
+						</ul>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="form-row">
+						<div class="col-sm-6">
+							<div class="custom-file">
+								<input type="file" name="imageFile[]" class="custom-file-input" id="images" multiple="multiple">
+								<label class="custom-file-label" for="images">Choose image</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//GALLERY-->
+	
 
 	<button type="submit" class="btn btn-primary float-right">Save</button>
 

@@ -5,6 +5,7 @@ use App\Models\Account;
 use App\Models\Member;
 use App\Models\Userprofile;
 use App\Http\Controllers\Paginators;
+use App\Http\Controllers\CrudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,7 @@ Route::post('/account',function(){
     $account->instagram_handle = request('SocialInstagram');
     $account->linkedin_handle = request('SocialLinkedIn');
     $account->website_handle = request('SocialWebsite');
+    $account->status = request('Status');
     $account->save();
     return redirect('/accountsbyname');
 });
@@ -89,6 +91,7 @@ Route::post('/member',function(){
     $member->instagram_handle = request('SocialInstagram');
     $member->linkedin_handle = request('SocialLinkedIn');
     $member->website_handle = request('SocialWebsite');
+    $account->status = request('Status');
     $member->save();
     return redirect('/membersbyname');
 });
@@ -148,6 +151,29 @@ Route::get('usersbyname', [Paginators::class, 'userprofiles_by_name']);
 Route::get('usersbyaccount', [Paginators::class, 'userprofiles_by_account']);
 
 Route::get('usersbymember', [Paginators::class, 'userprofiles_by_member']);
+
+
+
+Route::get('showaccount/{id}', [CrudController::class, 'show_account']);
+Route::get('editaccount/{id}', [CrudController::class, 'edit_account']);
+Route::post('updateaccount', [CrudController::class, 'update_account']);
+
+Route::get('showmember/{id}', [CrudController::class, 'show_member']);
+Route::get('editmember/{id}', [CrudController::class, 'edit_member']);
+Route::post('updatemember', [CrudController::class, 'update_member']);
+Route::get('deletemember/{id}', [CrudController::class, 'delete_member']);
+/*Route::get('deletemember/{id}', function($id){
+    Member::find($id)->delete();
+    return
+ });*/
+
+Route::get('showuser/{id}', [CrudController::class, 'show_user']);
+Route::get('edituser/{id}', [CrudController::class, 'edit_user']);
+Route::post('updateuser', [CrudController::class, 'update_user']);
+
+Route::get('/searchaccount', [CrudController::class, 'search_account']);
+Route::get('/searchmember', [CrudController::class, 'search_member']);
+Route::get('/searchuser', [CrudController::class, 'search_user']);
 
 /*Auth::routes();
 

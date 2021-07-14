@@ -1900,7 +1900,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
   load: {
-    key: ''
+    key: 'AIzaSyAszXqdN2Dasiy0Bv9-LeJT-5Bj2S71ws0'
   },
   installComponents: true
 });
@@ -1911,61 +1911,7 @@ Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
  */
 
 var app = new Vue({
-  el: '#app',
-  data(){
-    return{
-      members:[],
-      infoWindowOptions: {
-          pixelOffset: {
-            width: 0,
-            height: -35
-          }
-      },
-      activeMember: {},
-      infoWindowOpened: false
-    }
-  },
-  created(){
-    axios.get('/api/memberlocations')
-      .then((response) =>this.members = response.data)
-      .catch((error) =>console.error(error))
-  },
-  methods: {
-    getPosition(m){
-      return{
-        lat: parseFloat(m.latitude),
-        lng: parseFloat(m.longitude)
-      }
-    },
-    handleMarkerClicked(m){
-      this.activeMember= m ; 
-      this.infoWindowOpened = true
-    },
-    handleInfoWindowClose(){
-      this.activeMember = {};
-      this.infoWindowOpened = false;
-    }
-  },
-  computed: {
-    mapCenter(){
-      if (!this.members.length){
-        return{
-          lat: 14.5790667,
-          lng: 121.0584578
-        }
-      }
-      return{
-        lat: parseFloat(this.members[0].latitude),
-        lng: parseFloat(this.members[0].longitude)
-      }
-    },
-    infoWindowPosition() {
-      return {
-        lat: parseFloat(this.activeMember.latitude),
-        lng: parseFloat(this.activeMember.longitude)
-      };
-    },
-  }
+  el: '#app'
 });
 
 /***/ }),

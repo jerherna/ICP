@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserprofilesTable extends Migration
+class CreateUserActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateUserprofilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('userprofiles', function (Blueprint $table) {
+        Schema::create('user_activities', function (Blueprint $table) {
             $table->id();
+
             //personal info
-            $table->string('firstname');
-            $table->string('middlename');
-            $table->string('lastname');
+            $table->string('firstname')->nullable();
+            $table->string('middlename')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('account_name')->nullable();
             $table->string('account_location')->nullable();
             $table->string('role')->nullable();
@@ -78,6 +79,10 @@ class CreateUserprofilesTable extends Migration
             $table->string('to_5')->nullable();
             $table->string('conductedby_5')->nullable();
             $table->string('venue_5')->nullable();
+
+            $table->string('modified_by')->nullable();
+            $table->string('date_time')->nullable();
+
             $table->timestamps();
         });
     }
@@ -89,6 +94,6 @@ class CreateUserprofilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userprofiles');
+        Schema::dropIfExists('user_activities');
     }
 }

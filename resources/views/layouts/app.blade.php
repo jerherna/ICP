@@ -38,7 +38,77 @@
     <script src="{{ asset('src/js/vendor/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('plugins/popper.js/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script language="JavaScript" type="text/javascript">
 
+        (function($) {
+            'use strict';
+            // File Upload Control
+            $(function(){
+                $('.file-upload-browse').on('click', function() {
+                    var file = $(this).parent().parent().parent().find('.file-upload-default');
+                    file.trigger('click');
+                });
+                $('.file-upload-default').on('change', function() {
+                
+                    // force check delete existing img attachment
+                    var $d = $(this).attr('data-img-name');
+                    $("input[value='"+ $d +"'][type='checkbox']").prop("checked", true);
+                    $('.file-upload-info').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+                    
+                    // generate image preview
+                    if (this.files && this.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('.profile-pic').attr('src',e.target.result);
+                        };
+                           reader.readAsDataURL(this.files[0]);
+                    }
+                })
+            });
+            
+            // Delete button for Profile Picture
+            $(function() {
+                $('.show-image .delete').on('click', function() {
+                    var $d = $(this).attr('data-img-name');
+                     $("input[value='"+ $d +"'][type='checkbox']").prop("checked", true);
+                     //$("img[data-img-name='"+$d+"']").remove();
+                     //$('.profile-pic').attr('src','');
+                     $('.profile-pic').attr('src',path+'/img/empty-profile.jpg?');
+                     
+                     $.toast({
+                        heading: 'Info',
+                        text: 'Update will take effect when document is saved!',
+                        showHideTransition: 'slide',
+                        icon: 'info',
+                          loaderBg: '#46c35f',
+                        position: 'top-right'
+                    })
+                })
+                
+                $.getJSON($apiPath,
+                    {
+                        action: '@DBLookup',
+                        db: 'Personnel Information',
+                        view: 'ProfByNotesID',
+                        key: $user,
+                        fields: encodeURI('EmployeeNo,FullName,PhotoFileName')
+                    }
+                ).done(function(data){
+                    $profile = data; //$.parseJSON(data);
+                    
+                    // populate the profile photo in top menu
+                    $('.avatar-profile')
+                        .attr('src',$dbPath+'/0/' + $profile.unid + '/$File/' + $profile.photofilename+'?');
+                    
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log("error " + textStatus);
+                    console.log("incoming Text " + jqXHR.responseText);
+                })
+                
+            });	
+            
+        })(jQuery);
+    </script>
     
 </head>
 <body>
@@ -93,7 +163,9 @@
     <script src="{{ asset('/plugins/select2/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('/dist/js/theme.js') }}"></script>
     <script src="{{ asset('/js/bootstrap-modal.js') }}"></script>
-    <script src="{{ asset('/js/common.js') }}"></script>
+    <!--<script src="{{ asset('/js/common.js') }}"></script>-->
     <script src="{{ asset('/js/xpages-view.js') }}"></script>
 </body>
 </html>
+
+

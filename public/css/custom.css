@@ -37,3 +37,46 @@ body, html {
 .clearfix {
     overflow: auto !important;
 }
+
+.table-font {
+    font-size: .8em !important;
+}
+
+/* override default column header */
+th[role=columnheader]{
+	border-bottom: 0!important;
+}
+
+.table{
+	display: table;
+}
+.table > tbody > tr >{
+	display:block!important;
+}
+
+
+.table > tbody > tr > td {
+	display: table-cell !important;
+	max-width: 300px!important;
+}
+
+
+.table > tbody > tr > td {
+
+	overflow: hidden;
+	word-wrap: break-word!important;
+	white-space:normal!important;
+	overflow: hidden!important;
+	text-overflow: ellipsis!important;
+	
+	white-space: normal!important;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1!important;
+}
+
+/* hide the empty view column header */
+/* categorized view */
+.thead > tr > th:empty{
+	display: none;
+}

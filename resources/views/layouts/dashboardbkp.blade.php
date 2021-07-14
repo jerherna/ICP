@@ -89,30 +89,18 @@
         <div class="map" id="app">
             <!-- MEMBER MAP TEST GOES HERE -->
             <gmap-map
-                :center="mapCenter"
+                :center="{lat:14.5790667,lng:121.0584578}"
                 :zoom="12"
                 style="width: 100%; height: 500px;"
                 
             >
-                <gmap-info-window
-                    :options="infoWindowOptions"
-                    :position="infoWindowPosition"
-                    :opened="infoWindowOpened"
-                    @closeclick="handleInfoWindowClose"
-                >
-                    <div>
-                        <h5 v-text="activeMember.church_name">Test Member</h5>
-                        <p v-text="activeMember.location">Address Goes Here</p>
-                    </div>
-                </gmap-info-window>
-                <gmap-marker
-                    v-for="(m, index) in members"
-                    :key="m.id"
-                    :position="getPosition(m)"
+                @foreach($members as $member)
+                 <gmap-marker
+                    :position="{lat:{{$member['latitude']}},lng:{{$member['longitude']}}}"
                     :clickable="true"
                     :draggable="false"
-                    @click="handleMarkerClicked(m)"
                 ></gmap-marker>
+                @endforeach
             </gmap-map>
         </div>
     </div>

@@ -1,25 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{url('account')}}" class="btn btn-primary">New Account</a>
-    <!--<button type="button" class="btn btn-primary float-right" href="{{url('account')}}">New Account</button>-->
-    <h1>Account List</h1>
-    <div class="py-5">
-        <table border="1" class="py-5 table table-striped table-bordered table-sm">
+    <a href="{{url('account')}}" class="btn btn-secondary">New Account</a>
+    <h1 class="pt-4">Accounts By Location</h1>
+    <div class="table-responsive table-borderless">
+        <table border="1" class="table table-striped table-bordered table-sm table-responsive" style="overflow-x: auto;">
             <tr>
-                <td>Location</td>
-                <td>Church Name</td>
+                <td class="font-weight-bold">Location</td>
+                <td class="font-weight-bold">Church Name</td>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>
                 <td>Mission</td>
                 -->
-                <td>Email</td>
-                <td>Mobile No.</td>
-                <td>Denomination Affiliation</td>
-                <td>Church Type</td>
-                <td>Church and Staff Leaders</td>
-                <td>Telephone No.</td>
+                <td class="font-weight-bold">Email</td>
+                <td class="font-weight-bold">Mobile No.</td>
+                <td class="font-weight-bold">Denomination Affiliation</td>
+                <td class="font-weight-bold">Church Type</td>
+                <td class="font-weight-bold">Church and Staff Leaders</td>
+                <td class="font-weight-bold">Telephone No.</td>
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>
@@ -29,7 +28,7 @@
             </tr>
             @foreach ($accounts as $account)
             <tr>
-                <td>{{$account['location']}}</td>
+                <td><a href="showaccount/{{$account->id}}" class="text-primary">{{$account['location']}}</a></td>
                 <td>{{$account['church_name']}}</td>
                 <!--<td>About</td>
                 <td>Description</td>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountsTable extends Migration
+class CreateAccountActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('account_activities', function (Blueprint $table) {
             $table->id();
+
             $table->string('church_name');
             $table->string('location')->nullable();
             $table->text('about')->nullable();
@@ -34,9 +35,6 @@ class CreateAccountsTable extends Migration
             $table->string('website_handle')->nullable();
             $table->string('status')->nullable();
 
-            $table->string('modified_by')->nullable();
-            $table->string('date_time')->nullable();
-            
             $table->timestamps();
         });
     }
@@ -48,6 +46,6 @@ class CreateAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('account_activities');
     }
 }

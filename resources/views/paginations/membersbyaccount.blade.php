@@ -2,24 +2,28 @@
 
 @section('content')
     <a href="{{url('member')}}" class="btn btn-primary">New Member</a>
-    <h1>Member List</h1>
-    <div class="py-5 mx-auto">
-        <table border="1" class="py-5 table table-striped table-bordered table-sm">
+    <h1 class="pt-4 align-items-center">Members by Account</h1>
+    <div class="row float-right pb-3 mx-auto">
+        <label>Search:</label>
+        <input id="inputSearch" type="" class="form-control" name="inputSearch">
+    </div>
+    <div class="table-responsive table-borderless">
+        <table border="1" class="table table-striped table-bordered table-sm table-responsive" style="overflow-x: auto;">
             <tr>
-                <td>Account Name</td>
-                <td>Church Name</td>
-                <td>Location</td>
+                <td class="font-weight-bold">Account Name</td>
+                <td class="font-weight-bold">Church Name</td>
+                <td class="font-weight-bold">Location</td>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>
                 <td>Mission</td>
                 -->
-                <td>Email</td>
-                <td>Mobile No.</td>
-                <td>Denomination Affiliation</td>
-                <td>Church Type</td>
-                <td>Church and Staff Leaders</td>
-                <td>Telephone No.</td>
+                <td class="font-weight-bold">Email</td>
+                <td class="font-weight-bold">Mobile No.</td>
+                <td class="font-weight-bold">Denomination Affiliation</td>
+                <td class="font-weight-bold">Church Type</td>
+                <td class="font-weight-bold">Church and Staff Leaders</td>
+                <td class="font-weight-bold">Telephone No.</td>
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>
@@ -29,7 +33,7 @@
             </tr>
             @foreach ($members as $member)
             <tr>
-                <td>{{$member['account_name']}}</td>
+                <td><a href="showmember/{{$member->id}}" class="text-primary">{{$member['account_name']}}</a></td>
                 <td>{{$member['church_name']}}</td>
                 <td>{{$member['location']}}</td>
                 <!--<td>About</td>
