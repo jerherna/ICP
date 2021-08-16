@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Account;
 use App\Models\Member;
 use App\Models\Userprofile;
+use App\Models\AccountRequest;
 use App\Http\Controllers\Paginators;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +93,7 @@ Route::post('/member',function(){
     $member->instagram_handle = request('SocialInstagram');
     $member->linkedin_handle = request('SocialLinkedIn');
     $member->website_handle = request('SocialWebsite');
-    $account->status = request('Status');
+    $member->status = request('Status');
     $member->save();
     return redirect('/membersbyname');
 });
@@ -152,11 +154,16 @@ Route::get('usersbyaccount', [Paginators::class, 'userprofiles_by_account']);
 
 Route::get('usersbymember', [Paginators::class, 'userprofiles_by_member']);
 
+Route::get('accountrequestview', [Paginators::class, 'account_request_view']);
+
+Route::get('setadminview', [Paginators::class, 'set_admin_view']);
+
 
 
 Route::get('showaccount/{id}', [CrudController::class, 'show_account']);
 Route::get('editaccount/{id}', [CrudController::class, 'edit_account']);
 Route::post('updateaccount', [CrudController::class, 'update_account']);
+Route::get('deleteaccount/{id}', [CrudController::class, 'delete_account']);
 
 Route::get('showmember/{id}', [CrudController::class, 'show_member']);
 Route::get('editmember/{id}', [CrudController::class, 'edit_member']);
@@ -171,9 +178,17 @@ Route::get('showuser/{id}', [CrudController::class, 'show_user']);
 Route::get('edituser/{id}', [CrudController::class, 'edit_user']);
 Route::post('updateuser', [CrudController::class, 'update_user']);
 
+//Search
 Route::get('/searchaccount', [CrudController::class, 'search_account']);
 Route::get('/searchmember', [CrudController::class, 'search_member']);
 Route::get('/searchuser', [CrudController::class, 'search_user']);
+
+//ChangeRequest
+Route::get('requestaccount/{id}', [CrudController::class, 'change_request_account']);
+Route::get('reviewrequestaccount/{id}', [CrudController::class, 'review_request_account']);
+Route::post('sendrequestaccount', [CrudController::class, 'send_request_account']);
+Route::get('approvaccountchange/{id}', [CrudController::class, 'approve_account_change']);
+Route::get('disapproveaccountchange/{id}', [CrudController::class, 'disapprove_account_request']);
 
 /*Auth::routes();
 
@@ -199,6 +214,11 @@ Route::get('/login/facebook', [App\Http\Controllers\Auth\LoginController::class,
 Route::get('/login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
 
 
+//Exporting Routes
+Route::get('/exportaccounts', [App\Http\Controllers\ExportController::class, 'export_accounts']);
+Route::get('/exportmembers', [App\Http\Controllers\ExportController::class, 'export_members']);
+Route::get('/exportusers', [App\Http\Controllers\ExportController::class, 'export_users']);
+
 /*
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/', [HomeController::class, 'account'])->name('account');
@@ -206,11 +226,41 @@ Route::get('/', [HomeController::class, 'account'])->name('account');
 });
 */
 
-//Route::get('/account', 'form@account');
 
-//Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])->name('form.account');
 
+//Export View Routes
+Route::get('/exportaccountview', [HomeController::class, 'account_export_view']);
+Route::get('/exportmemberview', [HomeController::class, 'member_export_view']);
+Route::get('/exportuserview', [HomeController::class, 'user_export_view']);
+
+
+//Set Admin
+Route::get('setadmin/{id}', [CrudController::class, 'set_admin']);
+Route::get('removeadmin/{id}', [CrudController::class, 'remove_admin']);
+
+/*
 Route::get('/yo', function()
 {
     return 'Hello World';
+});
+*/
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::group([
+        'prefix' => 'admin',
+        'as' => 'admin.',
+    ], function(){
+        Route::get('tasks',
+            [HomeController::class, 'index'])
+            ->name('layouts.dashboard');
+    });
+
+    Route::group([
+        'prefix' => 'user',
+        'as' => 'user.',
+    ], function(){
+        Route::get('tasks',
+            [HomeController::class, 'index'])
+            ->name('layouts.dashboard');
+    });
 });

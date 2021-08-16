@@ -6,6 +6,9 @@
                 <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
             </div>
             <div class="top-menu d-flex align-items-center">
+
+                    <img src="{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" style="border: 1px solid #cccccc; border-radius: 5px; width:30px; height: auto; float: left; margin-right: 15px; " >
+                    {{ Auth::user()->name }}
                 <button type="button" class="nav-link ml-10"><a href="#"><i class="ik ik-home"></a></i></button>
 
                 <button type="button" class="nav-link ml-10">

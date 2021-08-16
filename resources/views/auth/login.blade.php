@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 vertical-center">
-            <div class="mx-auto">
-                <img class="img-fluid pb-4 logo-fill center" style="max-width: 300px; horizontal-align: center;" src="{{ asset('img/interlink_logo.png') }}" alt="" />
+            <div class="mx-auto text-center py-5">
+                <img class="img-fluid pb-4 logo-fill text-center" style="max-width: 300px; horizontal-align: center;" src="{{ asset('img/interlink_logo.png') }}" alt="" />
             </div>
             <!--<h3 class="py-3 text-center">Interlink Church Portal</h3>-->
             <div class="card mx-auto" style="width:65%">

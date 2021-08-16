@@ -8,7 +8,7 @@
 				<i class="ik ik-file-text bg-blue"></i>
 				
 				<div class="d-inline">
-					<h5>Account Profile</h5>
+					<h5>Account Change Request</h5>
 					<span>{{$Info->church_name}}</span>
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 	</div>
 </div>-->
 
-<form action="/updateaccount" method="POST" enctype="multipart/form-data">
+<form action="/sendrequestaccount" method="POST" enctype="multipart/form-data">
 	@csrf
 	<!-- ACCOUNT PROFILE -->
 	<!--<div class="col-sm-4 ml-auto">
@@ -52,6 +52,7 @@
 		</div>
 	</div>-->
 	<input type="hidden" name="cid" value="{{ $Info->id }}">
+	<input type="hidden" name="requestor" value="{{ Auth::user()->name }}">
 	
 	<div class = "row">
 		<div class="col-sm-12">
@@ -260,7 +261,7 @@
 	</div>
 	<!--//CONTACT DETAILS-->
 
-	<button type="submit" class="btn btn-primary float-right" onclick="return confirm('Are you sure you want save your changes?')">Save</button>
+	<button type="submit" class="btn btn-primary float-right" onclick="return confirm('Are you sure you want send this request?')">Submit Request</button>
 
 </form>
 @endsection

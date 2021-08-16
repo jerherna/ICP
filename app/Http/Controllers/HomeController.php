@@ -54,4 +54,22 @@ class HomeController extends Controller
     {
         return view('form.user');
     }
+
+    public function account_export_view()
+    {
+        $this->authorize('admin_only');
+        return view ('export.exportaccount');
+    }
+
+    public function member_export_view()
+    {
+        $this->authorize('admin_only');
+        return view ('export.exportmember');
+    }
+
+    public function user_export_view()
+    {
+        $this->authorize('admin_only');
+        return view ('export.exportuser');
+    }
 }

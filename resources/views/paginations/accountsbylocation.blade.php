@@ -19,6 +19,7 @@
                 <td class="font-weight-bold">Church Type</td>
                 <td class="font-weight-bold">Church and Staff Leaders</td>
                 <td class="font-weight-bold">Telephone No.</td>
+                <th class="font-weight-bold text-dark"></th>
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>
@@ -41,6 +42,9 @@
                 <td>{{$account['church_type']}}</td>
                 <td>{{$account['church_staff_and_leaders']}}</td>
                 <td>{{$account['telephone']}}</td>
+                @can('admin_only')
+                    <td><a onclick="return confirm('Are you sure you want to delete this account?')" href="deleteaccount/{{$account->id}}"><span title="Delete" class="fa fa-trash-alt mx-3"></span></a></td>
+                @endcan
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>

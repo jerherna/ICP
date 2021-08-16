@@ -14,7 +14,9 @@
 			</div>
 		</div>
 	</div>
-	<a href="/editmember/{{$Info->id}}" class="btn btn-primary float-right">Edit</a>
+	@can('admin_only')
+		<a href="/editmember/{{$Info->id}}" class="btn btn-primary float-right">Edit</a>
+	@endcan
 	<a href="/accountsbyname" class="btn btn-warning float-right">Close</a>
 </div>
 
@@ -279,7 +281,7 @@
 		<div class="col-sm-12">
 			<div class="card mb-3">
 				<div class="card-header">
-					<h6>Map</h6>
+					<h6>Location</h6>
 					<div class="card-header-right">
 						<ul class="list-unstyled card-option" style="width: 90px;">
 							<li><i class="ik ik-chevron-left action-toggle ik-chevron-right"></i></li>
@@ -289,8 +291,22 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<div class="form-row">
+					<div class="map" id="app">
+						<!-- MEMBER MAP TEST GOES HERE -->
+						<gmap-map
+							:center="{lat:{{$Info->latitude}}, lng:{{$Info->longitude}}}"
+							:zoom="12"
+							style="width: 70%; height: 500px;"
+							
+						>
+							<gmap-marker
+								:position="{lat:{{$Info->latitude}}, lng:{{$Info->longitude}}}"
+								:clickable="true"
+								:draggable="false"
+							></gmap-marker>
+						</gmap-map>
 					</div>
+					<a href="https://www.google.com/maps/search/?api=1&query={{$Info->latitude}},{{$Info->longitude}}" class="text-primary" target="_blank">Open with Google Maps</a>
 				</div>
 			</div>
 		</div>

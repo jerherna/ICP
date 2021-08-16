@@ -15,19 +15,20 @@
     <div class="table-responsive table-borderless">
         <table border="1" class="table table-striped table-bordered table-sm table-responsive" style="overflow-x: auto;">
             <tr>
-                <td class="font-weight-bold">Church Name</td>
-                <td class="font-weight-bold">Location</td>
+                <th class="font-weight-bold">Church Name</th>
+                <th class="font-weight-bold">Location</th>
                 <!--<td>About</td>
                 <td>Description</td>
                 <td>Vision</td>
                 <td>Mission</td>
                 -->
-                <td class="font-weight-bold">Email</td>
-                <td class="font-weight-bold">Mobile No.</td>
-                <td class="font-weight-bold">Denomination Affiliation</td>
-                <td class="font-weight-bold">Church Type</td>
-                <td class="font-weight-bold">Church and Staff Leaders</td>
-                <td class="font-weight-bold">Telephone No.</td>
+                <th class="font-weight-bold">Email</th>
+                <th class="font-weight-bold">Mobile No.</th>
+                <th class="font-weight-bold">Denomination Affiliation</th>
+                <th class="font-weight-bold">Church Type</th>
+                <th class="font-weight-bold">Church and Staff Leaders</th>
+                <th class="font-weight-bold">Telephone No.</th>
+                <th class="font-weight-bold text-dark"></th>
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>
@@ -50,6 +51,9 @@
                 <td>{{$member['church_type']}}</td>
                 <td>{{$member['church_staff_and_leaders']}}</td>
                 <td>{{$member['telephone']}}</td>
+                @can('admin_only')
+                    <td><a onclick="return confirm('Are you sure you want to delete this member?')" href="deletemember/{{$member->id}}"><span title="Delete" class="fa fa-trash-alt mx-3"></span></a></td>
+                @endcan
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>

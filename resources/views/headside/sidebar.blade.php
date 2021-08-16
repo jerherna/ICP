@@ -59,41 +59,44 @@
 					</div>
 				</div>
 
+				@can('admin_only')
 				<div class="nav-item has-sub">
 					<a href="#"><i class="fas fa-file-contract fa-fw"></i><span>Reports</span></a>
 					<div class="submenu-content">
-						<a class="menu-item" href="">All Documents</a>
-						<a class="menu-item" href="">By Account</a>
-						<a class="menu-item" href="">By Member</a>
-						<a class="menu-item" href="">By People</a>
+						<!--<a class="menu-item" href="">All Documents</a>-->
+						<a class="menu-item" href="{{ url('exportaccountview') }}">Accounts</a>
+						<a class="menu-item" href="{{ url('exportmemberview') }}">Members</a>
+						<a class="menu-item" href="{{ url('exportuserview') }}">Users</a>
 					</div>
 				</div>
-
-				<div class="nav-item has-sub">
+				@endcan
+				
+				<!--<div class="nav-item has-sub">
 					<a href="#"><i class="fas fa-image fa-fw"></i><span>Gallery</span></a>
 					<div class="submenu-content">
 						<a class="menu-item" href="">Accounts</a>
 						<a class="menu-item" href="">Members</a>
 					</div>
-				</div>
+				</div>-->
 
+				
 				<div class="nav-item has-sub">
 					<a href="#"><i class="fa fa-address-card fa-fw"></i><span>Change Request</span></a>
 					<div class="submenu-content">
-						<a class="menu-item" href="">Account Profile</a>
+						<a class="menu-item" href="{{ url('accountrequestview') }}">Account Profile</a>
 						<a class="menu-item" href="">Member Profile</a>
 						<a class="menu-item" href="">User Profile</a>
 					</div>
 				</div>
 
+				@can('admin_only')
 				<div class="nav-item has-sub">
 					<a href="#"><i class="fas fa-cog fa-fw"></i><span>Maintenance</span></a>
 					<div class="submenu-content">
-						<a class="menu-item" href="">Templates</a>
-						<a class="menu-item" href="">Approval Workflow</a>
+						<a class="menu-item" href="{{ url('setadminview') }}">Set Admin</a>
 					</div>
 				</div>
-
+				@endcan
 			</nav>
 			<!-- //NAVIGATION -->                            
 		</div>

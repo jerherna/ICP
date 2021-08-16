@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\Member;
 use App\Models\Userprofile;
+use App\Models\User;
+use App\Models\AccountRequest;
 
 class Paginators extends Controller
 {
@@ -54,5 +56,21 @@ class Paginators extends Controller
     function userprofiles_by_member(){
         $data=Userprofile::orderBy('org_name')->paginate(5);
         return view('paginations.userprofilesbymember', ['userprofiles'=>$data]);
+    }
+
+    /*function account_request_view(){
+        $data=AccountRequest::orderBy('id')->paginate(5);
+        return view('paginations.accountrequest', ['userprofiles'=>$data]);
+    }*/
+
+    function account_request_view(){
+        $data=AccountRequest::orderBy('requestor')->paginate(5);
+        return view('paginations.accountrequest', ['account_requests'=>$data]);
+    }
+
+    function set_admin_view(){
+        $this->authorize('admin_only');
+        $data=User::orderBy('name')->paginate(5);
+        return view('paginations.setadmin', ['users'=>$data]);
     }
 }

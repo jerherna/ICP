@@ -49,7 +49,9 @@
                 <td>{{$member['church_type']}}</td>
                 <td>{{$member['church_staff_and_leaders']}}</td>
                 <td>{{$member['telephone']}}</td>
-                <td><a onclick="return confirm('Are you sure you want to delete this member?')" href="deletemember/{{$member->id}}"><span title="Delete" class="fa fa-trash-alt mx-3"></span></a></td>
+                @can('admin_only')
+                    <td><a onclick="return confirm('Are you sure you want to delete this member?')" href="deletemember/{{$member->id}}"><span title="Delete" class="fa fa-trash-alt mx-3"></span></a></td>
+                @endcan
                 <!--<td>Facebook</td>
                 <td>Twitter</td>
                 <td>Instagram</td>

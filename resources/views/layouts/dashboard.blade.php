@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@can('admin_only')
 <div class="row">
     <div class="col-md-12">
         <div class="row mb-5">
@@ -82,6 +83,7 @@
         </div>
     </div>
 </div>
+@endcan
 
 <div class="row">
     <div class="col-md-12">

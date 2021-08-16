@@ -15,7 +15,12 @@
 		</div>
 	</div>
 	<!--<button type="button" class="btn btn-primary float-right">Edit</button>-->
-	<a href="/editaccount/{{$data->id}}" class="btn btn-primary float-right">Edit</a>
+	@can('admin_only')
+		<a href="/editaccount/{{$data->id}}" class="btn btn-primary float-right">Edit</a>
+	@endcan
+	@can('user_only')
+		<a href="/requestaccount/{{$data->id}}" class="btn btn-primary float-right">Change Request</a>
+	@endcan
 	<a href="/membersbyname" class="btn btn-warning float-right">Close</a>
 </div>
 
@@ -263,7 +268,8 @@
 	</div>
 	<!--//CONTACT DETAILS-->
 
-	<!--CONTACT DETAILS-->
+	<!--AUDIT TRAIL-->
+	@can('admin_only')
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">
@@ -282,7 +288,11 @@
 						<ul>
 							@forelse ($audits as $audit)
 							<li>
-								@lang('article.updated.metadata', $audit->getMetadata())
+								@if($audit->event==='created')
+									@lang('article.created.metadata', $audit->getMetadata())
+								@else
+									@lang('article.updated.metadata', $audit->getMetadata())
+								@endif
 								{{$audit->created_at}}
 								@foreach ($audit->getModified() as $attribute => $modified)
 								<ul>
@@ -299,7 +309,8 @@
 			</div>
 		</div>
 	</div>
-	<!--//CONTACT DETAILS-->
+	@endcan
+	<!--//AUDIT TRAIL-->
 
 	<!--<button type="submit" class="btn btn-primary float-right">Save</button>-->
 

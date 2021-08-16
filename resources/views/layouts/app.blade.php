@@ -131,7 +131,7 @@
                 
                 <footer class="footer">
                     <div class="w-100 clearfix ml-auto">
-                        <span class="text-center text-sm-center d-md-inline-block">Copyright © <Computed Value> Interlink Business Solutions Inc. All Rights Reserved.</span>
+                        <span class="text-center text-sm-center d-md-inline-block">Copyright © Interlink Business Solutions Inc. All Rights Reserved {{ now()->year }}.</span>
                        <!--
                         <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
                         -->
