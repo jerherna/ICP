@@ -29,8 +29,8 @@ return [
             'linkedin_handle' => 'LinkedIn Account has been modified from <strong>:old</strong> to <strong>:new</strong>',
             'website_handle' => 'Website has been modified from <strong>:old</strong> to <strong>:new</strong>',
             'status' => 'Status has been modified from <strong>:old</strong> to <strong>:new</strong>',
-            'request_status' => 'This admin has set the status of this request from <strong>:old</strong> to <strong>:new</strong>',
-            'change_request_by' => 'This change was requested by <strong>:new</strong>'
+            'request_status' => 'Admin has set the status of this request from <strong>:old</strong> to <strong>:new</strong>',
+            'change_request_by' => 'Change was requested by <strong>:new</strong>'
         ],
     ],
 

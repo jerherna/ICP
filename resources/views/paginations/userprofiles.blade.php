@@ -34,7 +34,7 @@
             </tr>
             @foreach ($userprofiles as $userprofile)
             <tr>
-                <td><a href="showmember/{{$userprofile->id}}" class="text-primary">{{$userprofile['lastname']}}</a></td>
+                <td><a href="showuser/{{$userprofile->id}}" class="text-primary">{{$userprofile['lastname']}}</a></td>
                 <td>{{$userprofile['firstname']}}</td>
                 <!--<td>About</td>
                 <td>Description</td>

@@ -294,10 +294,11 @@
 						<ul>
 							@forelse ($audits as $audit)
 							<li>
+								@lang('article.updated.metadata', $audit->getMetadata())
 								@if($audit->event==='created')
-									@lang('article.created.metadata', $audit->getMetadata())
+									<!--@lang('article.created.metadata', $audit->getMetadata())-->
 								@else
-									@lang('article.updated.metadata', $audit->getMetadata())
+									<!--@lang('article.updated.metadata', $audit->getMetadata())-->
 								@endif
 								{{$audit->created_at}}
 								@foreach ($audit->getModified() as $attribute => $modified)

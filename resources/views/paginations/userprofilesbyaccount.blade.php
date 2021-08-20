@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{url('userprofile')}}" class="btn btn-primary">New User</a>
-    <h1>User List</h1>
+    <a href="{{url('userprofile')}}" class="btn btn-secondary">New User</a>
+    <h1 class="pt-4 align-items-center">Users By Account</h1>
+    <div class="row float-right pb-3 mx-auto">
+        <form method="get" action="/searchuser">
+            <label>Search:</label>
+            <input id="inputSearch" type="" class="form-control" name="inputSearch">
+            <div class="pt-2">
+                <button type="submit" class="btn btn-secondary my-2 my-sm-0 float-right">Search</button>
+            </div>
+        </form>
+    </div>
     <div class="py-5">
         <table border="1" class="py-5 table table-striped table-bordered table-sm">
             <tr>
@@ -26,7 +35,7 @@
             </tr>
             @foreach ($userprofiles as $userprofile)
             <tr>
-                <td><a href="showmember/{{$userprofile->id}}" class="text-primary">{{$userprofile['account_name']}}</a></td>
+                <td><a href="showuser/{{$userprofile->id}}" class="text-primary">{{$userprofile['account_name']}}</a></td>
                 <td>{{$userprofile['lastname']}}</td>
                 <td>{{$userprofile['firstname']}}</td>
                 <!--<td>About</td>
