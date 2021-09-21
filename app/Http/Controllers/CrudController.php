@@ -464,6 +464,23 @@ class CrudController extends Controller
         ];
         return view('show.showuser', $data);
     }
+
+
+    function edit_user($id){
+
+        $this->authorize('admin_only');
+
+        $row = DB::table('userprofiles')
+            ->where('id', $id)
+            ->first();
+        $data = [
+            'Info' => $row
+        ];
+
+        return view('edit.edituser', $data);
+    }
+
+
     //END USER CRUD 
 
 

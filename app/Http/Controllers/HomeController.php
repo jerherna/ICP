@@ -36,7 +36,6 @@ class HomeController extends Controller
         $accounts=Account::All();
         $members=Member::All();
         $users=Userprofile::All();
-        //return view('layouts.dashboard', ['members'=>$data]);
         return view('layouts.dashboard', compact('accounts','members','users'));
     }
 
