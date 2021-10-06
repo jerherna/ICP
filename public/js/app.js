@@ -1926,7 +1926,7 @@
       }
     },
     created(){
-      axios.get('/api/memberlocations')
+      axios.get('/memberlocations')
         .then((response) =>this.members = response.data)
         .catch((error) =>console.error(error))
     },

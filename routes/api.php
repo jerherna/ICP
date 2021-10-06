@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocationController;
+use App\Models\Member;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +15,8 @@ use App\Http\Controllers\LocationController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
-Route::get('/memberlocations', [App\Http\Controllers\LocationController::class, 'member']);
+//Route::get('/memberlocations', [App\Http\Controllers\LocationController::class, 'member']);

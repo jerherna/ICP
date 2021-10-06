@@ -254,6 +254,9 @@ Route::get('/yo', function()
 });
 */
 
+Route::get('/memberlocations', [App\Http\Controllers\LocationController::class, 'member']);
+
+
 Route::group(['middleware' => 'auth'], function(){
     Route::group([
         'prefix' => 'admin',
