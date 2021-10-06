@@ -64,6 +64,11 @@
                 <td>Status</td>-->
             </tr>
             @endforeach
+            @if (count($accounts) < 1)
+            <tr>
+                <p class="text-danger text-center">No records found!</p>
+            </tr>
+            @endif
         </table>
     </div>
     

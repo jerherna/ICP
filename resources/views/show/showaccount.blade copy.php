@@ -8,15 +8,24 @@
 				<i class="ik ik-file-text bg-blue"></i>
 				
 				<div class="d-inline">
-					<h5>Member Profile</h5>
-					<span>{{$Info->church_name}}</span>
+					<h5>Account Profile</h5>
+					<span>{{$data->church_name}}</span>
 				</div>
 			</div>
 		</div>
 	</div>
-	<a href="/editmember/{{$Info->id}}" class="btn btn-primary float-right">Edit</a>
-	<a href="/accountsbyname" class="btn btn-warning float-right">Close</a>
+	<!--<button type="button" class="btn btn-primary float-right">Edit</button>-->
+	@can('admin_only')
+		<a href="/editaccount/{{$data->id}}" class="btn btn-primary float-right">Edit</a>
+	@endcan
+	@can('user_only')
+		<a href="/requestaccount/{{$data->id}}" class="btn btn-primary float-right">Change Request</a>
+	@endcan
+	<a href="/membersbyname" class="btn btn-warning float-right">Close</a>
 </div>
+
+
+
 
 
 <!-- hidden remove attachment checkbox -->
@@ -26,9 +35,9 @@
 	</div>
 </div>-->
 
-<form action="/member" method="POST" enctype="multipart/form-data">
+<form action="/account" method="POST" enctype="multipart/form-data">
 	@csrf
-	<!-- MEMBER PROFILE -->
+	<!-- ACCOUNT PROFILE -->
 	<!--<div class="col-sm-4 ml-auto">
 		<div class="d-flex justify-content-center">
 			<div class="show-image">
@@ -51,11 +60,12 @@
 		</div>
 	</div>-->
 
+	
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">
 				<div class="card-header">
-					<h6>Member Profile</h6>
+					<h6>Account Profile</h6>
 					<div class="card-header-right">
 						<ul class="list-unstyled card-option" style="width: 90px;">
 							 <li><i class="ik ik-chevron-left action-toggle ik-chevron-right"></i></li>
@@ -81,8 +91,8 @@
 									
 									<!-- Form Attachment -->
 									<div class="form-group">
-										<input type="file" name="%%File.1" class="file-upload-default" data-img-name="">
-										<input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" hidden>
+										<input type="file" name="%%File.1" class="file-upload-default" data-img-name="" readonly>
+										<input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" hidden readonly>
 									</div>
 								</div>
 							</div>
@@ -91,13 +101,13 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label"><strong>Church Name</strong></label>
 								<div class="col-sm-8">
-									<input name="ChurchName" value="{{$Info->church_name}}" data-cus-label="Church Name" data-value="" class="form-control form-control-sm" readonly>
+									<input name="ChurchName" value="{{$data->church_name}}" data-cus-label="Church Name" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label"><strong>Location</strong></label>
 								<div class="col-sm-8">
-									<input name="Location" value="{{$Info->location}}" data-cus-label="Location" data-value="" class="form-control form-control-sm" readonly>
+									<input name="Location" value="{{$data->location}}" data-cus-label="Location" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 						</div>
@@ -105,52 +115,40 @@
 					<br>
 					<div class="form-row">
 						<div class="col-sm-6 no-gutters">
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Account Name</label>
-                                <div class="col-sm-9">
-                                    <input name="AcctName" value="{{$Info->account_name}}" data-cus-label="Account Name" data-value="" class="form-control form-control-sm" readonly>
-                                </div>
-                            </div>    
 							<div class="form-group row">
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<label class="col-form-label text-center"><strong>About</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
-									<textarea name="About" class="form-control" rows="8" data-cus-label="About" cols="20" data-value="" readonly>{{$Info->about}}</textarea>
+								<div class="col-sm-8 text-justify">
+									<textarea name="About"  class="form-control" rows="8" data-cus-label="About" cols="20" data-value="" readonly>{{$data->about}}</textarea>
 								</div>
 							</div>
 							<div class="form-group row">
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<label class="col-form-label text-center"><strong>Description</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
-									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value="" readonly>{{$Info->description}}</textarea>
+								<div class="col-sm-8 text-justify">
+									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value="" readonly>{{$data->description}}</textarea>
 								</div>
 							</div>
 						</div>
 	
 						<div class="col-sm-6 no-gutters">
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Account Location</label>
-                                <div class="col-sm-9">
-                                    <input name="AcctLocation" value="{{$Info->account_location}}" data-cus-label="Account Location" data-value="" class="form-control form-control-sm" readonly>
-                                </div>
-                            </div>    
 							<div class="form-group row">
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<label class="col-form-label text-center"><strong>Vision</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
-									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value="" readonly>{{$Info->vision}}</textarea>
+								<div class="col-sm-8 text-justify">
+									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value="" readonly>{{$data->vision}}</textarea>
 								</div>
-							</div>	
+							</div>
+	
 							<div class="form-group row">
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<label class="col-form-label text-center"><strong>Mission</strong></label>
 								</div>
-								<div class="col-sm-9 text-justify">
-									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value="" readonly>{{$Info->mission}}</textarea>
+								<div class="col-sm-8 text-justify">
+									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value="" readonly>{{$data->mission}}</textarea>
 								</div>
 							</div>
 	
@@ -160,7 +158,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- MEMBER PROFILE -->
+	<!-- ACCOUNT PROFILE -->
 
 	<!--CONTACT DETAILS-->
 	<div class = "row">
@@ -183,31 +181,31 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Email</label>
 								<div class="col-sm-8">
-									<input name="Email" value="{{$Info->email}}" data-cus-label="Email" data-value="" class="form-control form-control-sm" readonly>
+									<input name="Email" value="{{$data->email}}" data-cus-label="Email" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Mobile No.</label>
 								<div class="col-sm-8">
-									<input name="MobileNo" value="{{$Info->mobile}}" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm" readonly>
+									<input name="MobileNo" value="{{$data->mobile}}" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Denomination Affilitation</label>
 								<div class="col-sm-8">
-									<input name="DenomAffiliate" value="{{$Info->denomination_affiliation}}" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm" readonly>
+									<input name="DenomAffiliate" value="{{$data->denomination_affiliation}}" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Church Type</label>
 								<div class="col-sm-8">
-									<input name="ChurchType" value="{{$Info->church_type}}" data-cus-label="Church Type" data-value="" class="form-control form-control-sm" readonly>
+									<input name="ChurchType" value="{{$data->church_type}}" data-cus-label="Church Type" data-value="" class="form-control form-control-sm"readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Church and Staff Leaders</label>
 								<div class="col-sm-8">
-									<input name="StaffAndLeaders" value="{{$Info->church_and_staff_leaders}}" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm" readonly>
+									<input name="StaffAndLeaders" value="{{$data->church_and_staff_leaders}}" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 
@@ -218,48 +216,48 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Telephone No.</label>
 								<div class="col-sm-8">
-									<input name="TelNo" value="{{$Info->telephone}}" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm" readonly>
+									<input name="TelNo" value="{{$data->telephone}}" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-facebook-square"></i> Facebook</label>
-								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-fb" name="social-fb" value="Facebook" class="fb-checkbox" readonly></div>
+								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-fb" name="social-fb" value="Facebook" class="fb-checkbox"></div>
 								<div class="fb-value col-sm-8">
-									<input name="SocialFB" value="{{$Info->facebook_handle}}" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm" readonly>
+									<input name="SocialFB" value="{{$data->facebook_handle}}" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-twitter-square"></i> Twitter</label>
-								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-tw" name="social-tw" value="Twitter" class="tw-checkbox" readonly></div>
+								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-tw" name="social-tw" value="Twitter" class="tw-checkbox"></div>
 								<div class="tw-value col-sm-8">
-									<input name="SocialTwitter" value="{{$Info->twitter_handle}}" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm" readonly>
+									<input name="SocialTwitter" value="{{$data->twitter_handle}}" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-instagram"></i> Instagram</label>
-								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-ig" name="social-ig" value="Instagram" class="ig-checkbox" readonly></div>
+								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-ig" name="social-ig" value="Instagram" class="ig-checkbox"></div>
 								<div class="ig-value col-sm-8">
-									<input name="SocialInstagram" value="{{$Info->instagram_handle}}" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm" readonly>
+									<input name="SocialInstagram" value="{{$data->instagram_handle}}" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-linkedin"></i> LinkedIn</label>
-								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-li" name="social-li" value="LinkedIn" class="li-checkbox" readonly></div>
+								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-li" name="social-li" value="LinkedIn" class="li-checkbox"></div>
 								<div class="li-value col-sm-8">
-									<input name="SocialLinkedIn" value="{{$Info->linkedin_handle}}" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm" readonly>
+									<input name="SocialLinkedIn" value="{{$data->linkedin_handle}}" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fas fa-globe"></i> Website</label>
-								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-web" name="social-web" value="Website" class="web-checkbox" readonly></div>
+								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-web" name="social-web" value="Website" class="web-checkbox"></div>
 								<div class="web-value col-sm-8">
-									<input name="SocialWebsite" value="{{$Info->website_handle}}" data-cus-label="Website Link" data-value="" class="form-control form-control-sm" readonly>
+									<input name="SocialWebsite" value="{{$data->website_handle}}" data-cus-label="Website Link" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Status</label>
 								<div class="col-sm-8">
-									<input name="Status" value="{{$Info->status}}" data-cus-label="Status" data-value="" class="form-control form-control-sm" readonly>
+									<input name="Status" value="{{$data->status}}" data-cus-label="Status" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
 						</div>
@@ -270,16 +268,13 @@
 	</div>
 	<!--//CONTACT DETAILS-->
 
-
-
-
-
-	<!--CONTACT DETAILS-->
+	<!--AUDIT TRAIL-->
+	@can('admin_only')
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">
 				<div class="card-header">
-					<h6>Map</h6>
+					<h6>Audit Trail</h6>
 					<div class="card-header-right">
 						<ul class="list-unstyled card-option" style="width: 90px;">
 							<li><i class="ik ik-chevron-left action-toggle ik-chevron-right"></i></li>
@@ -290,12 +285,34 @@
 				</div>
 				<div class="card-body">
 					<div class="form-row">
+						<ul>
+							@forelse ($audits as $audit)
+							<li>
+								@if($audit->event==='created')
+									@lang('article.created.metadata', $audit->getMetadata())
+								@else
+									@lang('article.updated.metadata', $audit->getMetadata())
+								@endif
+								{{$audit->created_at}}
+								@foreach ($audit->getModified() as $attribute => $modified)
+								<ul>
+									<li>@lang('article.'.$audit->event.'.modified.'.$attribute, $modified)</li>
+								</ul>
+								@endforeach
+							</li>
+							@empty
+							<p>@lang('article.unavailable_audits')</p>
+							@endforelse
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--//CONTACT DETAILS-->
+	@endcan
+	<!--//AUDIT TRAIL-->
+
+	<!--<button type="submit" class="btn btn-primary float-right">Save</button>-->
 
 </form>
 @endsection

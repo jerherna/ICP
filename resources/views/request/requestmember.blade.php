@@ -8,7 +8,7 @@
 				<i class="ik ik-file-text bg-blue"></i>
 				
 				<div class="d-inline">
-					<h5>Member Profile</h5>
+					<h5>Member Change Request</h5>
 					<span>{{$Info->church_name}}</span>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 	</div>
 </div>-->
 
-<form action="/updatemember" method="POST" enctype="multipart/form-data">
+<form action="/sendrequestmember" method="POST" enctype="multipart/form-data">
 	@csrf
 	<!-- MEMBER PROFILE -->
 	<!--<div class="col-sm-4 ml-auto">
@@ -64,6 +64,7 @@
 		</div>
 	</div>-->
 	<input type="hidden" name="cid" value="{{ $Info->id }}">
+	<input type="hidden" name="requestor" value="{{ Auth::user()->name }}">
 
 	<div class = "row">
 		<div class="col-sm-12">
@@ -106,12 +107,14 @@
 								<label class="col-sm-4 col-form-label"><strong>Church Name</strong></label>
 								<div class="col-sm-8">
 									<input name="ChurchName" value="{{$Info->church_name}}" data-cus-label="Church Name" data-value="" class="form-control form-control-sm">
+									<input name="ChurchName_1" value="{{$Info->church_name}}" data-cus-label="Church Name" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label"><strong>Location</strong></label>
 								<div class="col-sm-8">
 									<input name="Location" value="{{$Info->location}}" data-cus-label="Location" data-value="" class="form-control form-control-sm">
+									<input name="Location_1" value="{{$Info->location}}" data-cus-label="Location" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 						</div>
@@ -123,6 +126,7 @@
                                 <label class="col-sm-3 col-form-label">Account Name</label>
                                 <div class="col-sm-9">
                                     <input name="AcctName" value="{{$Info->account_name}}" data-cus-label="Account Name" data-value="" class="form-control form-control-sm">
+									<input name="AcctName_1" value="{{$Info->account_name}}" data-cus-label="Account Name" data-value="" class="form-control form-control-sm" hidden>
                                 </div>
                             </div>    
 							<div class="form-group row">
@@ -131,6 +135,7 @@
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="About" class="form-control" rows="8" data-cus-label="About" cols="20" data-value="">{{$Info->about}}</textarea>
+									<textarea name="About_1"  class="form-control" rows="8" data-cus-label="About" cols="20" data-value="" hidden>{{$Info->about}}</textarea>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -139,6 +144,7 @@
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value="">{{$Info->description}}</textarea>
+									<textarea name="Description_1" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value="" hidden>{{$Info->description}}</textarea>
 								</div>
 							</div>
 						</div>
@@ -149,6 +155,7 @@
                                 <label class="col-sm-3 col-form-label">Account Location</label>
                                 <div class="col-sm-9">
                                     <input name="AcctLocation" value="{{$Info->account_location}}" data-cus-label="Account Location" data-value="" class="form-control form-control-sm">
+									<input name="AcctLocation_1" value="{{$Info->account_location}}" data-cus-label="Account Location" data-value="" class="form-control form-control-sm" hidden>
                                 </div>
                             </div>    
 							<div class="form-group row">
@@ -157,6 +164,7 @@
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value="">{{$Info->vision}}</textarea>
+									<textarea name="Vision_1" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value="" hidden>{{$Info->vision}}</textarea>
 								</div>
 							</div>	
 							<div class="form-group row">
@@ -165,6 +173,7 @@
 								</div>
 								<div class="col-sm-9 text-justify">
 									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value="">{{$Info->mission}}</textarea>
+									<textarea name="Mission_1" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value="" hidden>{{$Info->mission}}</textarea>
 								</div>
 							</div>
 	
@@ -198,42 +207,49 @@
 								<label class="col-sm-4 col-form-label">Email</label>
 								<div class="col-sm-8">
 									<input name="Email" value="{{$Info->email}}" data-cus-label="Email" data-value="" class="form-control form-control-sm">
+									<input name="Email_1" value="{{$Info->email}}" data-cus-label="Email" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Mobile No.</label>
 								<div class="col-sm-8">
 									<input name="MobileNo" value="{{$Info->mobile}}" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm">
+									<input name="MobileNo_1" value="{{$Info->mobile}}" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Denomination Affilitation</label>
 								<div class="col-sm-8">
 									<input name="DenomAffiliate" value="{{$Info->denomination_affiliation}}" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm">
+									<input name="DenomAffiliate_1" value="{{$Info->denomination_affiliation}}" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Church Type</label>
 								<div class="col-sm-8">
 									<input name="ChurchType" value="{{$Info->church_type}}" data-cus-label="Church Type" data-value="" class="form-control form-control-sm">
+									<input name="ChurchType_1" value="{{$Info->church_type}}" data-cus-label="Church Type" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Church and Staff Leaders</label>
 								<div class="col-sm-8">
 									<input name="StaffAndLeaders" value="{{$Info->church_and_staff_leaders}}" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm">
+									<input name="StaffAndLeaders_1" value="{{$Info->church_and_staff_leaders}}" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm"hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Latitude</label>
 								<div class="col-sm-8">
 									<input name="Latitude" value="{{$Info->latitude}}" data-cus-label="Latitude" data-value="" class="form-control form-control-sm">
+									<input name="Latitude_1" value="{{$Info->latitude}}" data-cus-label="Latitude" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Longitude</label>
 								<div class="col-sm-8">
 									<input name="Longitude" value="{{$Info->longitude}}" data-cus-label="Longitude" data-value="" class="form-control form-control-sm">
+									<input name="Longitude_1" value="{{$Info->longitude}}" data-cus-label="Longitude" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 
@@ -245,6 +261,7 @@
 								<label class="col-sm-4 col-form-label">Telephone No.</label>
 								<div class="col-sm-8">
 									<input name="TelNo" value="{{$Info->telephone}}" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm">
+									<input name="TelNo_1" value="{{$Info->telephone}}" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -252,6 +269,7 @@
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-fb" name="social-fb" value="Facebook" class="fb-checkbox"></div>
 								<div class="fb-value col-sm-8">
 									<input name="SocialFB" value="{{$Info->facebook_handle}}" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialFB_1" value="{{$Info->facebook_handle}}" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -259,6 +277,7 @@
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-tw" name="social-tw" value="Twitter" class="tw-checkbox"></div>
 								<div class="tw-value col-sm-8">
 									<input name="SocialTwitter" value="{{$Info->twitter_handle}}" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialTwitter_1" value="{{$Info->twitter_handle}}" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -266,6 +285,7 @@
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-ig" name="social-ig" value="Instagram" class="ig-checkbox"></div>
 								<div class="ig-value col-sm-8">
 									<input name="SocialInstagram" value="{{$Info->instagram_handle}}" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialInstagram_1" value="{{$Info->instagram_handle}}" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -273,6 +293,7 @@
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-li" name="social-li" value="LinkedIn" class="li-checkbox"></div>
 								<div class="li-value col-sm-8">
 									<input name="SocialLinkedIn" value="{{$Info->linkedin_handle}}" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialLinkedIn_1" value="{{$Info->linkedin_handle}}" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -280,12 +301,14 @@
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-web" name="social-web" value="Website" class="web-checkbox"></div>
 								<div class="web-value col-sm-8">
 									<input name="SocialWebsite" value="{{$Info->website_handle}}" data-cus-label="Website Link" data-value="" class="form-control form-control-sm">
+									<input name="SocialWebsite_1" value="{{$Info->website_handle}}" data-cus-label="Website Link" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Status</label>
 								<div class="col-sm-8">
 									<input name="Status" value="{{$Info->status}}" data-cus-label="Status" data-value="" class="form-control form-control-sm">
+									<input name="Status_1" value="{{$Info->status}}" data-cus-label="Status" data-value="" class="form-control form-control-sm" hidden>
 								</div>
 							</div>
 						</div>

@@ -8,6 +8,7 @@ use App\Models\Member;
 use App\Models\Userprofile;
 use App\Models\User;
 use App\Models\AccountRequest;
+use App\Models\MemberRequest;
 
 class Paginators extends Controller
 {
@@ -58,14 +59,14 @@ class Paginators extends Controller
         return view('paginations.userprofilesbymember', ['userprofiles'=>$data]);
     }
 
-    /*function account_request_view(){
-        $data=AccountRequest::orderBy('id')->paginate(5);
-        return view('paginations.accountrequest', ['userprofiles'=>$data]);
-    }*/
-
     function account_request_view(){
         $data=AccountRequest::orderBy('requestor')->paginate(5);
         return view('paginations.accountrequest', ['account_requests'=>$data]);
+    }
+
+    function member_request_view(){
+        $data=MemberRequest::orderBy('requestor')->paginate(5);
+        return view('paginations.memberrequest', ['member_requests'=>$data]);
     }
 
     function set_admin_view(){

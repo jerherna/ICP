@@ -1900,7 +1900,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
   load: {
-    key: 'AIzaSyDUS8QuLl-m7rMXhDFtJjzl2lHjx_-WVl0'
+    key: 'AIzaSyACotzBM6ROvhWyxXAenyNo5A-CKZ7R170'
   },
   installComponents: true
 });

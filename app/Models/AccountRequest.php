@@ -15,7 +15,5 @@ class AccountRequest extends Model implements Auditable
 
     protected $auditExclude = ['cid', 'requestor', 'id'];
 
-    protected $auditEvents = [
-        'updated'
-    ];
+    protected $auditEvents = ['updated'];
 }

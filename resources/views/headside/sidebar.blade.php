@@ -84,7 +84,7 @@
 					<a href="#"><i class="fa fa-address-card fa-fw"></i><span>Change Request</span></a>
 					<div class="submenu-content">
 						<a class="menu-item" href="{{ url('accountrequestview') }}">Account Profile</a>
-						<a class="menu-item" href="">Member Profile</a>
+						<a class="menu-item" href="{{ url('memberrequestview') }}">Member Profile</a>
 						<a class="menu-item" href="">User Profile</a>
 					</div>
 				</div>

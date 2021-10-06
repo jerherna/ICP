@@ -13,11 +13,6 @@
                 <tr>
                     <th class="font-weight-bold text-dark">Location</th>
                     <th class="font-weight-bold text-dark">Church Name</th>
-                    <!--<td>About</td>
-                    <td>Description</td>
-                    <td>Vision</td>
-                    <td>Mission</td>
-                    -->
                     <th class="font-weight-bold text-dark">Email</th>
                     <th class="font-weight-bold text-dark">Mobile No.</th>
                     <th class="font-weight-bold text-dark">Denomination Affiliation</th>
@@ -25,12 +20,6 @@
                     <th class="font-weight-bold text-dark">Church and Staff Leaders</th>
                     <th class="font-weight-bold text-dark">Telephone No.</th>
                     <th class="font-weight-bold text-dark"></th>
-                    <!--<td>Facebook</td>
-                    <td>Twitter</td>
-                    <td>Instagram</td>
-                    <td>LinkedIn</td>
-                    <td>Website</td>
-                    <td>Status</td>-->
                 </tr>
             </thead>
             
@@ -38,11 +27,6 @@
             <tr>
                 <td><a href="showmember/{{$member->id}}" class="text-primary">{{$member['location']}}</a></td>
                 <td>{{$member['church_name']}}</td>
-                <!--<td>About</td>
-                <td>Description</td>
-                <td>Vision</td>
-                <td>Mission</td>
-                -->
                 <td>{{$member['email']}}</td>
                 <td>{{$member['mobile']}}</td>
                 <td>{{$member['denomination_affiliation']}}</td>
@@ -52,12 +36,6 @@
                 @can('admin_only')
                     <td><a onclick="return confirm('Are you sure you want to delete this member?')" href="deletemember/{{$member->id}}"><span title="Delete" class="fa fa-trash-alt mx-3"></span></a></td>
                 @endcan
-                <!--<td>Facebook</td>
-                <td>Twitter</td>
-                <td>Instagram</td>
-                <td>LinkedIn</td>
-                <td>Website</td>
-                <td>Status</td>-->
             </tr>
             @endforeach
         </table>

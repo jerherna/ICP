@@ -25,12 +25,6 @@ class HomeController extends Controller
      *@return \Illuminate\Contracts\Support\Renderable
      */
 
-    /*public function index()
-    {
-        $data=Member::All();
-        return view('layouts.dashboard', ['members'=>$data]);
-    }*/
-
     public function index()
     {
         $accounts=Account::All();

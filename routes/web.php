@@ -8,6 +8,7 @@ use App\Models\AccountRequest;
 use App\Http\Controllers\Paginators;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ChangeRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,6 +156,8 @@ Route::get('usersbymember', [Paginators::class, 'userprofiles_by_member']);
 
 Route::get('accountrequestview', [Paginators::class, 'account_request_view']);
 
+Route::get('memberrequestview', [Paginators::class, 'member_request_view']);
+
 Route::get('setadminview', [Paginators::class, 'set_admin_view']);
 
 
@@ -182,12 +185,19 @@ Route::get('/searchaccount', [CrudController::class, 'search_account']);
 Route::get('/searchmember', [CrudController::class, 'search_member']);
 Route::get('/searchuser', [CrudController::class, 'search_user']);
 
-//ChangeRequest
-Route::get('requestaccount/{id}', [CrudController::class, 'change_request_account']);
-Route::get('reviewrequestaccount/{id}', [CrudController::class, 'review_request_account']);
-Route::post('sendrequestaccount', [CrudController::class, 'send_request_account']);
-Route::get('approvaccountchange/{id}', [CrudController::class, 'approve_account_change']);
-Route::get('disapproveaccountchange/{id}', [CrudController::class, 'disapprove_account_request']);
+//ChangeRequestAccount
+Route::get('requestaccount/{id}', [ChangeRequestController::class, 'change_request_account']);
+Route::get('reviewrequestaccount/{id}', [ChangeRequestController::class, 'review_request_account']);
+Route::post('sendrequestaccount', [ChangeRequestController::class, 'send_request_account']);
+Route::get('approvaccountchange/{id}', [ChangeRequestController::class, 'approve_account_change']);
+Route::get('disapproveaccountchange/{id}', [ChangeRequestController::class, 'disapprove_account_request']);
+
+//ChangeRequestMember
+Route::get('requestmember/{id}', [ChangeRequestController::class, 'change_request_member']);
+Route::get('reviewrequestmember/{id}', [ChangeRequestController::class, 'review_request_member']);
+Route::post('sendrequestmember', [ChangeRequestController::class, 'send_request_member']);
+Route::get('approvememberchange/{id}', [ChangeRequestController::class, 'approve_member_change']);
+Route::get('disapprovememberchange/{id}', [ChangeRequestController::class, 'disapprove_member_request']);
 
 /*Auth::routes();
 

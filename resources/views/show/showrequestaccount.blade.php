@@ -18,7 +18,7 @@
 	
 	<!--<button type="button" class="btn btn-primary float-right">Edit</button>-->
 	@can('admin_only')
-		<a href="/approvaccountchange/{{$data->id}}" class="btn btn-primary float-right" onclick="return confirm('Are you sure you want to approve the changes?')">Approve</a>
+		<a href="/approveaccountchange/{{$data->id}}" class="btn btn-primary float-right" onclick="return confirm('Are you sure you want to approve the changes?')">Approve</a>
 	@endcan
 	@can('admin_only')
 		<a href="/disapproveaccountchange/{{$data->id}}" class="btn btn-warning float-right" onclick="return confirm('Are you sure you want to deny the request?')">Disapprove</a>
@@ -214,9 +214,6 @@
 									<input name="StaffAndLeaders" value="{{$data->church_and_staff_leaders}}" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm" readonly>
 								</div>
 							</div>
-
-
-
 						</div>
 						<div class="col-sm-6 no-gutters">
 							<div class="form-group row">
