@@ -14,8 +14,10 @@ use App\Http\Controllers\LocationController;
 |
 */
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 
 Route::get('/memberlocations', [App\Http\Controllers\LocationController::class, 'member']);
