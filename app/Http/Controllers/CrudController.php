@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
 
 //use DB;
 
@@ -25,6 +26,52 @@ class CrudController extends Controller
 
 
     //ACCOUNT CRUD//
+    function create_account(Request $request){
+
+        $this->validate($request, [
+            'ChurchName' => 'required',
+            'Location' => 'required',
+            'Email' => 'nullable|email',
+            'MobileNo' => 'required',
+            'DenomAffiliate' => 'required',
+            'ChurchType' => 'required',
+            'StaffAndLeaders' => 'required',
+            'Status' => 'required',
+        ]);
+
+
+        $account = new Account();
+        //account details
+        $account->church_name = request('ChurchName');
+        $account->location = request('Location');
+        $account->about = request('About');
+        $account->description = request('Description');
+        $account->vision = request('Vision');
+        $account->mission = request('Mission');
+        //contact details
+        $account->email = request('Email');
+        $account->mobile = request('MobileNo');
+        $account->denomination_affiliation = request('DenomAffiliate');
+        $account->church_type = request('ChurchType');
+        $account->church_and_staff_leaders = request('StaffAndLeaders');
+        $account->telephone = request('TelNo');
+        $account->facebook_handle = request('SocialFB');
+        $account->twitter_handle = request('SocialTwitter');
+        $account->instagram_handle = request('SocialInstagram');
+        $account->linkedin_handle = request('SocialLinkedIn');
+        $account->website_handle = request('SocialWebsite');
+        $account->status = request('Status');
+        //create filename of account profile photo
+        if(!empty($request->photo)){
+            $imageName = request('FileName').'_'.time().'.'.$request->photo->extension();
+            $account->church_photo = $imageName;
+            $request->photo->move(public_path('images'), $imageName);
+        }
+        $account->save();
+
+        return redirect('/accountsbyname');
+    }
+
     function show_account($id){
 
         $data = DB::table('accounts')
@@ -59,27 +106,45 @@ class CrudController extends Controller
 
         $todayDate = Carbon::now()->toDateTimeString();
 
-            Account::find($request->input('cid'))
-            ->update([
-                'church_name'=>$request->input('ChurchName'),
-                'location' => $request->input('Location'),
-                'about' => $request->input('About'),
-                'description' => $request->input('Description'),
-                'vision' => $request->input('Vision'),
-                'mission' => $request->input('Mission'),
-                'email' => $request->input('Email'),
-                'mobile' => $request->input('MobileNo'),
-                'denomination_affiliation' => $request->input('DenomAffiliate'),
-                'church_type' => $request->input('ChurchType'),
-                'church_and_staff_leaders' => $request->input('StaffAndLeaders'),
-                'telephone' => $request->input('TelNo'),
-                'facebook_handle' => $request->input('SocialFB'),
-                'twitter_handle' => $request->input('SocialTwitter'),
-                'instagram_handle' => $request->input('SocialInstagram'),
-                'linkedin_handle' => $request->input('SocialLinkedIn'),
-                'website_handle' => $request->input('SocialWebsite'),
-                'status' => $request->input('Status')
-            ]);
+
+        $oldPhoto = $request->input('FileName_1');
+        
+        if(!empty($request->FileName)){
+            File::delete(public_path('images').'/'.$oldPhoto);
+            $imageName = request('FileName').'_'.time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('images'), $imageName);
+        }
+        else if(empty($request->FileName) && !empty($request->Delete)){
+            File::delete(public_path('images').'/'.$oldPhoto);
+            $imageName = null;
+        }
+        else if(empty($request->FileName) && empty($request->Delete)){
+            $imageName = request('FileName_1').'_'.time().'.'.$request->photo->extension();
+        }
+
+
+        Account::find($request->input('cid'))
+         ->update([
+            'church_name'=>$request->input('ChurchName'),
+            'location' => $request->input('Location'),
+            'about' => $request->input('About'),
+            'description' => $request->input('Description'),
+            'vision' => $request->input('Vision'),
+            'mission' => $request->input('Mission'),
+            'email' => $request->input('Email'),
+            'mobile' => $request->input('MobileNo'),
+            'denomination_affiliation' => $request->input('DenomAffiliate'),
+            'church_type' => $request->input('ChurchType'),
+            'church_and_staff_leaders' => $request->input('StaffAndLeaders'),
+            'telephone' => $request->input('TelNo'),
+            'facebook_handle' => $request->input('SocialFB'),
+            'twitter_handle' => $request->input('SocialTwitter'),
+            'instagram_handle' => $request->input('SocialInstagram'),
+            'linkedin_handle' => $request->input('SocialLinkedIn'),
+            'website_handle' => $request->input('SocialWebsite'),
+            'status' => $request->input('Status'),
+            'church_photo' => $imageName
+        ]);
         return redirect('accountsbyname');
     }
 
@@ -92,6 +157,40 @@ class CrudController extends Controller
     //END ACCOUNT CRUD
 
     //MEMBER CRUD
+    function create_member(Request $request){
+        $member = new Member();
+        //member details
+        $member->church_name = request('ChurchName');
+        $member->location = request('Location');
+        $member->account_name = request('AcctName');
+        $member->account_location = request('AcctLocation');
+        $member->about = request('About');
+        $member->description = request('Description');
+        $member->vision = request('Vision');
+        $member->mission = request('Mission');
+        //contact details
+        $member->email = request('Email');
+        $member->mobile = request('MobileNo');
+        $member->denomination_affiliation = request('DenomAffiliate');
+        $member->church_type = request('ChurchType');
+        $member->church_and_staff_leaders = request('StaffAndLeaders');
+        $member->telephone = request('TelNo');
+        $member->facebook_handle = request('SocialFB');
+        $member->twitter_handle = request('SocialTwitter');
+        $member->instagram_handle = request('SocialInstagram');
+        $member->linkedin_handle = request('SocialLinkedIn');
+        $member->website_handle = request('SocialWebsite');
+        $member->status = request('Status');
+        //create filename of member profile photo
+        if(!empty($request->photo)){
+            $imageName = request('FileName').'_'.time().'.'.$request->photo->extension();
+            $member->church_photo = $imageName;
+            $request->photo->move(public_path('images'), $imageName);
+        }
+        $member->save();
+        return redirect('/membersbyname');
+    }
+
     function show_member($id){
         $data = DB::table('members')
             ->where('id', $id)
@@ -106,6 +205,21 @@ class CrudController extends Controller
     function update_member(Request $request){
         
         $this->authorize('admin_only');
+
+        $oldPhoto = $request->input('FileName_1');
+        
+        if(!empty($request->FileName)){
+            File::delete(public_path('images').'/'.$oldPhoto);
+            $imageName = request('FileName').'_'.time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('images'), $imageName);
+        }
+        else if(empty($request->FileName) && !empty($request->Delete)){
+            File::delete(public_path('images').'/'.$oldPhoto);
+            $imageName = null;
+        }
+        else if(empty($request->FileName) && empty($request->Delete)){
+            $imageName = request('FileName_1').'_'.time().'.'.$request->photo->extension();
+        }
 
             Member::find($request->input('cid'))
             ->update([
@@ -128,7 +242,8 @@ class CrudController extends Controller
                 'instagram_handle' => $request->input('SocialInstagram'),
                 'linkedin_handle' => $request->input('SocialLinkedIn'),
                 'website_handle' => $request->input('SocialWebsite'),
-                'status' => $request->input('Status')
+                'status' => $request->input('Status'),
+                'church_photo' => $imageName
             ]);
         return redirect('membersbyname');
     }

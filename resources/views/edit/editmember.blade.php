@@ -83,7 +83,11 @@
 						<div class="col-sm-4 ml-auto">
 							<div class="d-flex justify-content-center">
 								<div class="show-image">
-									<img src="{{ asset('img/empty-profile.jpg') }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+									@if (is_null($Info->church_photo))
+										<img src="{{ asset('img/empty-profile.jpg') }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+									@else
+										<img src="{{ asset('images/'. $Info->church_photo) }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+									@endif
 									<div class="btn-group btn-group-sm" role="group" aria-label="Profile Picture Action">
 										<button type="button" class="update file-upload-browse btn btn-sm btn-primary" data-img-name="">
 											<i class="fa fa-folder-open"></i>
@@ -95,8 +99,10 @@
 									
 									<!-- Form Attachment -->
 									<div class="form-group">
-										<input type="file" name="%%File.1" class="file-upload-default" data-img-name="">
-										<input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" hidden>
+										<input type="file" name="photo" class="file-upload-default" data-img-name="">
+										<input type="text" class="form-control file-upload-info" placeholder="Upload Image" name="FileName" hidden>
+										<input type="text" value="{{$Info->church_photo}}" name="FileName_1" hidden>
+										<input type="text" value="" name="Delete" hidden>
 									</div>
 								</div>
 							</div>

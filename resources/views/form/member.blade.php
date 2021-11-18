@@ -39,7 +39,7 @@
 	</div>
 </div>-->
 
-<form action="/member" method="POST" enctype="multipart/form-data">
+<form action="/createmember" method="POST" enctype="multipart/form-data">
 	@csrf
 	<!-- MEMBER PROFILE -->
 	<!--<div class="col-sm-4 ml-auto">
@@ -94,8 +94,8 @@
 									
 									<!-- Form Attachment -->
 									<div class="form-group">
-										<input type="file" name="%%File.1" class="file-upload-default" data-img-name="">
-										<input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" hidden>
+										<input type="file" name="photo" class="file-upload-default" data-img-name="">
+										<input type="text" class="form-control file-upload-info" placeholder="Upload Image" name="FileName" hidden>
 									</div>
 								</div>
 							</div>

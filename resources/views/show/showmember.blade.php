@@ -74,15 +74,19 @@
 						<div class="col-sm-4 ml-auto">
 							<div class="d-flex justify-content-center">
 								<div class="show-image">
-									<img src="{{ asset('img/empty-profile.jpg') }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
-									<div class="btn-group btn-group-sm" role="group" aria-label="Profile Picture Action">
+									@if (is_null($data->church_photo))
+										<img src="{{ asset('img/empty-profile.jpg') }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+									@else
+										<img src="{{ asset('images/'. $data->church_photo) }}" data-img-name="" class="profile-pic img-fluid img-thumbnail rounded">
+									@endif
+									<!--<div class="btn-group btn-group-sm" role="group" aria-label="Profile Picture Action">
 										<button type="button" class="update file-upload-browse btn btn-sm btn-primary" data-img-name="">
 											<i class="fa fa-folder-open"></i>
 										</button>
 										<button type="button" class="btn btn-sm btn-danger delete" data-img-name="" >
 											<i class="fa fa-trash"></i>
 										</button>
-									</div>
+									</div>-->
 									
 									<!-- Form Attachment -->
 									<div class="form-group">
@@ -288,6 +292,7 @@
 
 
 	<!--MAP SECTION-->
+	@if($data->latitude != null)
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">
@@ -322,6 +327,7 @@
 			</div>
 		</div>
 	</div>
+	@endif
 	<!--//MAP SECTION-->
 
 

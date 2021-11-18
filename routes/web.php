@@ -44,6 +44,7 @@ Route::get('/member', [App\Http\Controllers\HomeController::class, 'member'])->n
 
 Route::get('/userprofile', [App\Http\Controllers\HomeController::class, 'user'])->name('form.user');
 
+/*
 Route::post('/account',function(){
     $account = new Account();
     //account details
@@ -69,8 +70,10 @@ Route::post('/account',function(){
     $account->save();
     return redirect('/accountsbyname');
 });
+*/
+Route::post('/createaccount', [App\Http\Controllers\CrudController::class, 'create_account']);
 
-Route::post('/member',function(){
+/*Route::post('/member',function(){
     $member = new Member();
     //member details
     $member->church_name = request('ChurchName');
@@ -96,7 +99,9 @@ Route::post('/member',function(){
     $member->status = request('Status');
     $member->save();
     return redirect('/membersbyname');
-});
+});*/
+
+Route::post('/createmember', [App\Http\Controllers\CrudController::class, 'create_member']);
 
 Route::post('/userprofile',function(){
     $userprofile = new Userprofile();

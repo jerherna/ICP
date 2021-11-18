@@ -24,7 +24,7 @@
 	</div>
 </div>-->
 
-<form action="/account" method="POST" enctype="multipart/form-data">
+<form action="/createaccount" method="POST" enctype="multipart/form-data">
 	@csrf
 	<!-- ACCOUNT PROFILE -->
 	<!--<div class="col-sm-4 ml-auto">
@@ -80,8 +80,8 @@
 									
 									<!-- Form Attachment -->
 									<div class="form-group">
-										<input type="file" name="%%File.1" class="file-upload-default" data-img-name="">
-										<input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" hidden>
+										<input type="file" name="photo" class="file-upload-default" data-img-name="">
+										<input type="text" class="form-control file-upload-info" placeholder="Upload Image" name="FileName" hidden>
 									</div>
 								</div>
 							</div>
@@ -90,13 +90,15 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label"><strong>Church Name</strong></label>
 								<div class="col-sm-8">
-									<input name="ChurchName" value="" data-cus-label="Church Name" data-value="" class="form-control form-control-sm">
+									<input name="ChurchName" value="{{ old('ChurchName') }}" data-cus-label="Church Name" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('ChurchName') }}</span>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label"><strong>Location</strong></label>
 								<div class="col-sm-8">
-									<input name="Location" value="" data-cus-label="Location" data-value="" class="form-control form-control-sm">
+									<input name="Location" value="{{ old('Location') }}" data-cus-label="Location" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('Location') }}</span>
 								</div>
 							</div>
 						</div>
@@ -109,7 +111,7 @@
 									<label class="col-form-label text-center"><strong>About</strong></label>
 								</div>
 								<div class="col-sm-8 text-justify">
-									<textarea name="About" class="form-control" rows="8" data-cus-label="About" cols="20" data-value=""></textarea>
+									<textarea name="About" class="form-control" rows="8" data-cus-label="About" cols="20" data-value="">{{ old('About') }}</textarea>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -117,7 +119,7 @@
 									<label class="col-form-label text-center"><strong>Description</strong></label>
 								</div>
 								<div class="col-sm-8 text-justify">
-									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value=""></textarea>
+									<textarea name="Description" class="form-control" rows="8" data-cus-label="Description" cols="20" data-value="">{{ old('Description') }}</textarea>
 								</div>
 							</div>
 						</div>
@@ -128,7 +130,7 @@
 									<label class="col-form-label text-center"><strong>Vision</strong></label>
 								</div>
 								<div class="col-sm-8 text-justify">
-									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value=""></textarea>
+									<textarea name="Vision" class="form-control" rows="8" data-cus-label="Vision" cols="20" data-value="">{{ old('Vision') }}</textarea>
 								</div>
 							</div>
 	
@@ -137,7 +139,7 @@
 									<label class="col-form-label text-center"><strong>Mission</strong></label>
 								</div>
 								<div class="col-sm-8 text-justify">
-									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value=""></textarea>
+									<textarea name="Mission" class="form-control" rows="8" data-cus-label="Mission" cols="20" data-value="">{{ old('Mission') }}</textarea>
 								</div>
 							</div>
 	
@@ -170,31 +172,36 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Email</label>
 								<div class="col-sm-8">
-									<input name="Email" value="" data-cus-label="Email" data-value="" class="form-control form-control-sm">
+									<input name="Email" value="{{ old('Email') }}" data-cus-label="Email" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('Email') }}</span>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Mobile No.</label>
 								<div class="col-sm-8">
-									<input name="MobileNo" value="" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm">
+									<input name="MobileNo" value="{{ old('MobileNo') }}" data-cus-label="Mobile No." size="35" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('MobileNo') }}</span>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Denomination Affilitation</label>
 								<div class="col-sm-8">
-									<input name="DenomAffiliate" value="" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm">
+									<input name="DenomAffiliate" value="{{ old('DenomAffiliate') }}" data-cus-label="Denomination Affiliation" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('DenomAffiliate') }}</span>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Church Type</label>
 								<div class="col-sm-8">
-									<input name="ChurchType" value="" data-cus-label="Church Type" data-value="" class="form-control form-control-sm">
+									<input name="ChurchType" value="{{ old('ChurchType') }}" data-cus-label="Church Type" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('ChurchType') }}</span>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Church and Staff Leaders</label>
 								<div class="col-sm-8">
-									<input name="StaffAndLeaders" value="" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm">
+									<input name="StaffAndLeaders" value="{{ old('StaffAndLeaders') }}" data-cus-label="Staff and Leaders" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('StaffAndLeaders') }}</span>
 								</div>
 							</div>
 
@@ -205,48 +212,49 @@
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Telephone No.</label>
 								<div class="col-sm-8">
-									<input name="TelNo" value="" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm">
+									<input name="TelNo" value="{{ old('TelNo') }}" data-cus-label="Telephone No." size="35" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-facebook-square"></i> Facebook</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-fb" name="social-fb" value="Facebook" class="fb-checkbox"></div>
 								<div class="fb-value col-sm-8">
-									<input name="SocialFB" value="" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialFB" value="{{ old('SocialFB') }}" data-cus-label="Facebook Profile" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-twitter-square"></i> Twitter</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-tw" name="social-tw" value="Twitter" class="tw-checkbox"></div>
 								<div class="tw-value col-sm-8">
-									<input name="SocialTwitter" value="" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialTwitter" value="{{ old('SocialTwitter') }}" data-cus-label="Twitter Profile" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-instagram"></i> Instagram</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-ig" name="social-ig" value="Instagram" class="ig-checkbox"></div>
 								<div class="ig-value col-sm-8">
-									<input name="SocialInstagram" value="" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialInstagram" value="{{ old('SocialInstagram') }}" data-cus-label="Instagram Profile" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fab fa-linkedin"></i> LinkedIn</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-li" name="social-li" value="LinkedIn" class="li-checkbox"></div>
 								<div class="li-value col-sm-8">
-									<input name="SocialLinkedIn" value="" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm">
+									<input name="SocialLinkedIn" value="{{ old('SocialLinkedIn') }}" data-cus-label="LinkedIn Profile" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-3 col-form-label"><i class="fas fa-globe"></i> Website</label>
 								<div class="col-sm-1" style="padding-top:7px; padding-bottom:7px;"><input type="checkbox" id="social-web" name="social-web" value="Website" class="web-checkbox"></div>
 								<div class="web-value col-sm-8">
-									<input name="SocialWebsite" value="" data-cus-label="Website Link" data-value="" class="form-control form-control-sm">
+									<input name="SocialWebsite" value="{{ old('SocialWebsite') }}" data-cus-label="Website Link" data-value="" class="form-control form-control-sm">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-sm-4 col-form-label">Status</label>
 								<div class="col-sm-8">
-									<input name="Status" value="" data-cus-label="Status" data-value="" class="form-control form-control-sm">
+									<input name="Status" value="{{ old('Status') }}" data-cus-label="Status" data-value="" class="form-control form-control-sm">
+									<span class="text-danger">{{ $errors->first('Status') }}</span>
 								</div>
 							</div>
 						</div>
@@ -257,7 +265,7 @@
 	</div>
 	<!--//CONTACT DETAILS-->
 
-	<!--GALLERY-->
+	<!--GALLERY
 	<div class = "row">
 		<div class="col-sm-12">
 			<div class="card mb-3">

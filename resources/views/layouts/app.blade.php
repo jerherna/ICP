@@ -70,39 +70,13 @@
             $(function() {
                 $('.show-image .delete').on('click', function() {
                     var $d = $(this).attr('data-img-name');
+                    var APP_URL = {!! json_encode(url('/')) !!}
                      $("input[value='"+ $d +"'][type='checkbox']").prop("checked", true);
                      //$("img[data-img-name='"+$d+"']").remove();
                      //$('.profile-pic').attr('src','');
-                     $('.profile-pic').attr('src',path+'/img/empty-profile.jpg?');
-                     
-                     $.toast({
-                        heading: 'Info',
-                        text: 'Update will take effect when document is saved!',
-                        showHideTransition: 'slide',
-                        icon: 'info',
-                          loaderBg: '#46c35f',
-                        position: 'top-right'
-                    })
-                })
-                
-                $.getJSON($apiPath,
-                    {
-                        action: '@DBLookup',
-                        db: 'Personnel Information',
-                        view: 'ProfByNotesID',
-                        key: $user,
-                        fields: encodeURI('EmployeeNo,FullName,PhotoFileName')
-                    }
-                ).done(function(data){
-                    $profile = data; //$.parseJSON(data);
-                    
-                    // populate the profile photo in top menu
-                    $('.avatar-profile')
-                        .attr('src',$dbPath+'/0/' + $profile.unid + '/$File/' + $profile.photofilename+'?');
-                    
-                }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log("error " + textStatus);
-                    console.log("incoming Text " + jqXHR.responseText);
+                     $('.profile-pic').attr('src',APP_URL+'/img/empty-profile.jpg?');
+                     $("[name='FileName']").val('');
+                     $("[name='Delete']").val('yes');
                 })
                 
             });	
